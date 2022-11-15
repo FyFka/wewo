@@ -1,0 +1,9 @@
+.videos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  background-color: #101113;
+  border-radius: 0.5rem;
+}

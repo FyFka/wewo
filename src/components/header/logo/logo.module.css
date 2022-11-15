@@ -1,0 +1,13 @@
+.logo {
+  background-color: brown;
+  width: 3rem;
+}
+
+.hiddenAppName {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  font: 0/0;
+  color: transparent;
+  margin: 0;
+}

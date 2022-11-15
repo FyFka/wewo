@@ -1,0 +1,28 @@
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-direction: column;
+  background-color: #151719;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  flex: 1 1;
+}
+
+.categoryName {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.category:hover {
+  background-color: brown;
+}
+
+.compactCategory {
+  display: flex;
+  place-content: center;
+  flex: 1 1;
+  background-color: transparent;
+  padding: 0 2rem;
+}

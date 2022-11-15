@@ -1,0 +1,28 @@
+.card {
+  height: 22rem;
+  width: 100%;
+}
+
+.preview {
+  position: relative;
+  background-color: #6f7176;
+  height: 20rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  background-color: brown;
+}
+
+.preview:hover > .play {
+  opacity: 1;
+}

@@ -1,0 +1,11 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(21, 23, 25, 0.9);
+  backdrop-filter: saturate(180%) blur(1.25rem);
+  padding: 1rem;
+  z-index: 7999;
+}

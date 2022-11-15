@@ -1,0 +1,44 @@
+.search {
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  background-color: #0a0b0c;
+  border-radius: 0.5rem;
+}
+
+.field {
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2rem;
+  background-color: #0a0b0c;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.field[disabled] {
+  background-color: #353535;
+  cursor: not-allowed;
+}
+
+.searchHelper {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  height: 1.25rem;
+  width: 1.25rem;
+  background: url("/assets/search.svg") no-repeat center center;
+}
+
+.searchSubmit {
+  cursor: pointer;
+  position: absolute;
+  right: -4.35rem;
+  background-color: #0a0b0c;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
