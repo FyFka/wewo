@@ -27,8 +27,8 @@
   top: 50%;
   transform: translateY(-50%);
   display: block;
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 1rem;
+  width: 1rem;
   background: url("/assets/search.svg") no-repeat center center;
 }
 

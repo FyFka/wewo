@@ -1,13 +1,11 @@
 .logo {
-  background-color: brown;
-  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.hiddenAppName {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  font: 0/0;
-  color: transparent;
+.appName {
   margin: 0;
+  font-size: 1.5rem;
 }

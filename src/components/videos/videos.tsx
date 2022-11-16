@@ -10,7 +10,7 @@ export default function Videos({ videos }: IVideosProps) {
   return (
     <section className={styles.videos}>
       {videos.map((video) => (
-        <Card video={video} key={video.id.videoId} />
+        <Card video={video} key={video.id} />
       ))}
     </section>
   );

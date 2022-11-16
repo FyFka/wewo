@@ -1,28 +1,78 @@
 .card {
-  height: 22rem;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.previewContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .preview {
   position: relative;
   background-color: #6f7176;
-  height: 20rem;
+  height: 100%;
   width: 100%;
   border-radius: 0.5rem;
   overflow: hidden;
+  aspect-ratio: 5/3;
 }
 
 .play {
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
   opacity: 0;
   transition: opacity 0.15s ease-in-out;
-  background-color: brown;
+  background-color: rgba(16, 17, 19, 0.75);
+}
+
+.playText {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
 }
 
 .preview:hover > .play {
   opacity: 1;
+}
+
+.title {
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.description {
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0;
+  color: #6f7176;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.meta {
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0;
+  color: #6f7176;
+}
+
+.published::before {
+  content: "•";
+  margin: 0 0.25rem;
+}
+
+.published {
+  margin: 0;
 }

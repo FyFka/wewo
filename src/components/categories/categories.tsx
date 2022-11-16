@@ -18,16 +18,16 @@ export default function Categories() {
   const categories = useRef<HTMLElement>();
   const [compact, setCompact] = useState(false);
 
-  const handleChangeCompact = (entry: IntersectionObserverEntry[]) => {
-    if (!entry[0].isIntersecting) {
-      setCompact(true);
-    } else {
+  const handleChangeCompact = ([entry]: IntersectionObserverEntry[]) => {
+    if (entry.isIntersecting) {
       setCompact(false);
+    } else {
+      setCompact(true);
     }
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(handleChangeCompact, { threshold: 0.5 });
+    const observer = new IntersectionObserver(handleChangeCompact, { threshold: 0 });
     const htmlSection = categories.current;
     if (htmlSection) {
       observer.observe(htmlSection);

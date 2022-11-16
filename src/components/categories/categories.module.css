@@ -13,11 +13,11 @@
 }
 
 .compactCategories {
-  position: fixed;
+  position: sticky;
   top: 3.938rem;
   left: 0;
   width: 100%;
-  background-color: rgba(21, 23, 25, 0.9);
+  background-color: rgba(21, 23, 25, 0.95);
   backdrop-filter: saturate(180%) blur(1.25rem);
   padding: 0.25rem 1.25rem 0.75rem 1.25rem;
   z-index: 7999;

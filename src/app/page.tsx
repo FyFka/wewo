@@ -3,14 +3,19 @@ import Container from "../components/container/container";
 import Header from "../components/header/header";
 import Videos from "../components/videos/videos";
 import { apiHost, apiKey } from "../shared/configuration";
-import { IVideoSearch } from "../shared/interfaces/IVideo";
+import { IVideoList } from "../shared/interfaces/IVideo";
 
-async function getData() {
-  const res = await fetch(`https://${apiHost}/search?part=snippet&q=New&maxResults=50`, {
-    headers: {
-      "X-RapidAPI-Key": apiKey,
-      "X-RapidAPI-Host": apiHost,
-    },
+async function getVideos() {
+  const params = new URLSearchParams({
+    part: "snippet,contentDetails,statistics",
+    chart: "mostPopular",
+    maxResults: "25",
+    regionCode: "US",
+    key: apiKey,
+  });
+
+  const endpoint = `${apiHost}/videos?${params}`;
+  const res = await fetch(endpoint, {
     next: {
       revalidate: 3600,
     },
@@ -19,11 +24,11 @@ async function getData() {
     throw new Error("Failed to fetch data");
   }
   const data = await res.json();
-  return data as IVideoSearch;
+  return data as IVideoList;
 }
 
 export default async function Home() {
-  const videos = await getData();
+  const videos = await getVideos();
 
   return (
     <>

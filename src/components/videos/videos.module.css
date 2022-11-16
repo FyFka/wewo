@@ -1,9 +1,27 @@
 .videos {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   margin-top: 1.25rem;
   padding: 1.25rem;
   background-color: #101113;
   border-radius: 0.5rem;
+}
+
+@media (max-width: 1440px) {
+  .videos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .videos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .videos {
+    grid-template-columns: 1fr;
+  }
 }
