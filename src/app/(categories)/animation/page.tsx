@@ -1,6 +1,6 @@
-import Videos from "../../components/videos/videos";
-import { apiKey, apiHost } from "../../shared/configuration";
-import { IVideoList } from "../../shared/interfaces/IVideo";
+import Videos from "../../../components/videos/videos";
+import { apiKey, apiHost } from "../../../shared/configuration";
+import { IVideoPreviewList } from "../../../shared/interfaces/IVideo";
 
 async function getVideos() {
   const params = new URLSearchParams({
@@ -19,13 +19,13 @@ async function getVideos() {
     },
   });
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to fetch videos");
   }
   const data = await res.json();
-  return data as IVideoList;
+  return data as IVideoPreviewList;
 }
 
-export default async function Home() {
+export default async function Animation() {
   const videos = await getVideos();
 
   return <Videos videos={videos.items} />;

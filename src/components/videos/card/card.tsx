@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { IVideo } from "../../../shared/interfaces/IVideo";
+import { IVideoPreview } from "../../../shared/interfaces/IVideo";
 import styles from "./card.module.css";
 
 interface ICardProps {
-  video: IVideo;
+  video: IVideoPreview;
 }
 
 export default function Card({ video }: ICardProps) {
@@ -45,7 +45,7 @@ export default function Card({ video }: ICardProps) {
 
   return (
     <div className={styles.card}>
-      <Link className={styles.previewContainer} href="/video">
+      <Link className={styles.previewContainer} href={`/video/${video.id}`} prefetch={false}>
         <div className={styles.preview} title={video.snippet.title}>
           <Image
             src={previewUrl}
@@ -63,7 +63,7 @@ export default function Card({ video }: ICardProps) {
         </div>
         <h4 className={styles.title}>{video.snippet.title}</h4>
       </Link>
-      <Link href="/channel">
+      <Link href={`/channel/${video.snippet.channelId}`} prefetch={false}>
         <h5 className={styles.description}>{video.snippet.channelTitle}</h5>
         <h6 className={styles.meta}>
           {toViewCount(video.statistics.viewCount)} views

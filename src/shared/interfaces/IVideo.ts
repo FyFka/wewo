@@ -1,10 +1,34 @@
-export interface IVideoList {
+export interface IVideoView {
   kind: string;
   etag: string;
-  items: IVideo[];
+  items: [IVideo] | [];
+  pageInfo: {
+    totalResults: number;
+    resultsPerPage: number;
+  };
 }
 
 export interface IVideo {
+  kind: string;
+  etag: string;
+  id: string;
+  snippet: ISnippet;
+  contentDetails: IContentDetails;
+  statistics: IStatistics;
+  player: IPlayer;
+}
+
+export interface IPlayer {
+  embedHtml: string;
+}
+
+export interface IVideoPreviewList {
+  kind: string;
+  etag: string;
+  items: IVideoPreview[];
+}
+
+export interface IVideoPreview {
   kind: string;
   etag: string;
   id: string;

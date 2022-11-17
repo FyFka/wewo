@@ -26,3 +26,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+*::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+*::-webkit-scrollbar-track-piece {
+  background-color: #1e2224;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--contrast-color);
+  border-radius: 1rem;
+}
+
+*::-webkit-scrollbar-corner {
+  background-color: #1e2224;
+}
