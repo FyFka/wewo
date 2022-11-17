@@ -1,6 +1,3 @@
-import Categories from "../components/categories/categories";
-import Container from "../components/container/container";
-import Header from "../components/header/header";
 import Videos from "../components/videos/videos";
 import { apiHost, apiKey } from "../shared/configuration";
 import { IVideoList } from "../shared/interfaces/IVideo";
@@ -30,13 +27,5 @@ async function getVideos() {
 export default async function Home() {
   const videos = await getVideos();
 
-  return (
-    <>
-      <Header />
-      <Container>
-        <Categories />
-        <Videos videos={videos.items} />
-      </Container>
-    </>
-  );
+  return <Videos videos={videos.items} />;
 }

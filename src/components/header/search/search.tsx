@@ -3,11 +3,7 @@
 import { useState } from "react";
 import styles from "./search.module.css";
 
-interface ISearchProps {
-  disabled?: boolean;
-}
-
-export default function Search({ disabled }: ISearchProps) {
+export default function Search() {
   const [isFocused, setIsFocused] = useState(false);
   const [search, setSearch] = useState("");
 
@@ -38,8 +34,6 @@ export default function Search({ disabled }: ISearchProps) {
       <input
         className={styles.field}
         type="text"
-        disabled={disabled}
-        readOnly={disabled}
         placeholder="Search"
         id="header[search]"
         value={search}

@@ -1,0 +1,30 @@
+.errorContainer {
+  height: 100%;
+  width: 100%;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reset {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  padding: 0;
+  background: url("../../../public/assets/refresh.svg");
+  transition: transform 0.25s ease-in-out;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.reset:hover {
+  transform: rotate(180deg) scale(1.1);
+}

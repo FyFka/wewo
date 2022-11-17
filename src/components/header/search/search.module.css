@@ -16,11 +16,6 @@
   border-radius: 0.5rem;
 }
 
-.field[disabled] {
-  background-color: #353535;
-  cursor: not-allowed;
-}
-
 .searchHelper {
   position: absolute;
   left: 0.5rem;
