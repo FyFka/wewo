@@ -6,12 +6,12 @@ import styles from "./categories.module.css";
 
 const categoriesMock = [
   { to: "/", name: "Trending", icon: "/assets/categories/trending.svg" },
-  { to: "/", name: "Music", icon: "/assets/categories/music.svg" },
-  { to: "/", name: "Gaming", icon: "/assets/categories/gaming.svg" },
-  { to: "/", name: "News", icon: "/assets/categories/news.svg" },
-  { to: "/", name: "Movies", icon: "/assets/categories/movies.svg" },
-  { to: "/", name: "Learning", icon: "/assets/categories/learning.svg" },
-  { to: "/", name: "Sports", icon: "/assets/categories/sports.svg" },
+  { to: "/gaming", name: "Gaming", icon: "/assets/categories/gaming.svg" },
+  { to: "/blogs", name: "People & Blogs", icon: "/assets/categories/blogs.svg" },
+  { to: "/animation", name: "Film & Animation", icon: "/assets/categories/animation.svg" },
+  { to: "/science", name: "Science & Technology", icon: "/assets/categories/science.svg" },
+  { to: "/music", name: "Music", icon: "/assets/categories/music.svg" },
+  { to: "/sports", name: "Sports", icon: "/assets/categories/sports.svg" },
 ];
 
 export default function Categories() {

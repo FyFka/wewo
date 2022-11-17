@@ -4,7 +4,7 @@
   gap: 1rem;
   margin-top: 1.25rem;
   padding: 1.25rem;
-  background-color: #101113;
+  background-color: var(--primary-color);
   border-radius: 0.5rem;
 }
 

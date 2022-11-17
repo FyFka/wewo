@@ -1,6 +1,6 @@
-import Videos from "../components/videos/videos";
-import { apiHost, apiKey } from "../shared/configuration";
-import { IVideoList } from "../shared/interfaces/IVideo";
+import Videos from "../../components/videos/videos";
+import { apiKey, apiHost } from "../../shared/configuration";
+import { IVideoList } from "../../shared/interfaces/IVideo";
 
 async function getVideos() {
   const params = new URLSearchParams({
@@ -8,6 +8,7 @@ async function getVideos() {
     chart: "mostPopular",
     maxResults: "50",
     regionCode: "US",
+    videoCategoryId: "22",
     key: apiKey,
   });
 

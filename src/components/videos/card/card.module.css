@@ -39,6 +39,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
+  color: #ececec;
 }
 
 .preview:hover > .play {

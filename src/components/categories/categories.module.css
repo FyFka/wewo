@@ -1,5 +1,5 @@
 .categories {
-  background-color: #101113;
+  background-color: var(--primary-color);
   border-radius: 0.5rem;
   padding: 1.25rem;
 }

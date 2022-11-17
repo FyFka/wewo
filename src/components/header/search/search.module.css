@@ -2,16 +2,16 @@
   position: relative;
   width: 100%;
   max-width: 30rem;
-  background-color: #0a0b0c;
+  background-color: var(--primary-contrast-color);
   border-radius: 0.5rem;
 }
 
 .field {
-  color: #fff;
+  color: var(--contrast-color);
   height: 100%;
   width: 100%;
   padding: 0.5rem 1rem 0.5rem 2rem;
-  background-color: #0a0b0c;
+  background-color: var(--primary-contrast-color);
   border: none;
   border-radius: 0.5rem;
 }
@@ -31,7 +31,7 @@
   cursor: pointer;
   position: absolute;
   right: -4.35rem;
-  background-color: #0a0b0c;
+  background-color: var(--primary-contrast-color);
   border: none;
   padding: 0.5rem 1rem;
   border-top-right-radius: 0.5rem;

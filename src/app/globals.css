@@ -1,11 +1,13 @@
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: #151719;
-  }
+html {
+  --primary-color: #101113;
+  --primary-contrast-color: #0a0b0c;
+  --contrast-color: #ececec;
+  --secondary-color: #151719;
+}
+
+body {
+  color: var(--contrast-color);
+  background: var(--secondary-color);
 }
 
 html,
