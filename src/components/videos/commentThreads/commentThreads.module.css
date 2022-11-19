@@ -1,0 +1,15 @@
+.threads {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.threadsContainer {
+  padding: 1rem 0;
+}
+
+.threadsCount {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}

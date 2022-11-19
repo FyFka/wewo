@@ -1,0 +1,23 @@
+.notFound {
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.back {
+  font-weight: 700;
+  cursor: pointer;
+  background-color: brown;
+  color: var(--contrast-color);
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 0.5rem;
+}

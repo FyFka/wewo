@@ -1,11 +1,10 @@
+import { IPageInfo } from "./IPage";
+
 export interface IVideoView {
   kind: string;
   etag: string;
   items: [IVideo] | [];
-  pageInfo: {
-    totalResults: number;
-    resultsPerPage: number;
-  };
+  pageInfo: IPageInfo;
 }
 
 export interface IVideo {
