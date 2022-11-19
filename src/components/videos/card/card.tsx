@@ -17,7 +17,7 @@ export default function Card({ video }: ICardProps) {
 
   return (
     <div className={styles.card}>
-      <Link className={styles.previewContainer} href={`/video/${video.id}`} prefetch={false}>
+      <Link className={styles.previewContainer} href={`/video/${video.id}`}>
         <div className={styles.preview} title={video.snippet.title}>
           <Image
             src={previewUrl}
@@ -35,7 +35,7 @@ export default function Card({ video }: ICardProps) {
         </div>
         <h4 className={styles.title}>{video.snippet.title}</h4>
       </Link>
-      <Link href={`/channel/${video.snippet.channelId}`} prefetch={false}>
+      <Link href={`/channel/${video.snippet.channelId}`}>
         <h5 className={styles.description}>{video.snippet.channelTitle}</h5>
         <h6 className={styles.meta}>
           {toViewCount(video.statistics.viewCount)} views
