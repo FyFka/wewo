@@ -3,6 +3,7 @@
 import { RefObject, useEffect, useRef, useState } from "react";
 import Category from "./category/category";
 import styles from "./categories.module.css";
+import { useObserver } from "../../hooks/useObserver";
 
 const categoriesMock = [
   { to: "/", name: "Trending", icon: "/assets/categories/trending.svg" },
@@ -17,22 +18,15 @@ const categoriesMock = [
 export default function Categories() {
   const categories = useRef<HTMLElement>();
   const [compact, setCompact] = useState(false);
+  useObserver({ target: categories, onIntersect: handleChangeCompact });
 
-  const handleChangeCompact = ([entry]: IntersectionObserverEntry[]) => {
+  function handleChangeCompact([entry]: IntersectionObserverEntry[]) {
     if (entry.isIntersecting) {
       setCompact(false);
     } else {
       setCompact(true);
     }
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(handleChangeCompact, { threshold: 0 });
-    const htmlSection = categories.current;
-    if (htmlSection) {
-      observer.observe(htmlSection);
-    }
-  }, []);
+  }
 
   return (
     <>

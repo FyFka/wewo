@@ -1,6 +1,6 @@
 import Videos from "../../../components/videos/videos";
 import { apiKey, apiHost } from "../../../shared/configuration";
-import { IVideoPreviewList } from "../../../shared/interfaces/IVideo";
+import { IVideoPreviewList } from "../../../shared/interfaces/Video";
 
 async function getVideos() {
   const params = new URLSearchParams({

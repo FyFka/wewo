@@ -1,10 +1,10 @@
-import { IPageInfo } from "./IPage";
+import { IPageInfo } from "./Page";
 
 export interface ICommentThreads {
   etag: string;
   items: IUserComment[];
   kind: string;
-  nextPageToken: string;
+  nextPageToken?: string;
   pageInfo: IPageInfo;
 }
 
@@ -19,7 +19,7 @@ export interface IUserComment {
     totalReplyCount: number;
     videoId: string;
   };
-  replies: { comments: IComment<IReplySnippet>[] };
+  replies?: { comments: IComment<IReplySnippet>[] };
 }
 
 export interface IComment<T = ICommentSnippet> {

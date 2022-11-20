@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IUserComment } from "../../../../shared/interfaces/IComments";
+import { IUserComment } from "../../../../shared/interfaces/Comments";
 import { toPublishedAt, toViewCount } from "../../../../shared/helpers";
 import styles from "./comment.module.css";
 
@@ -10,6 +10,7 @@ interface ICommentProps {
 
 export default function Comment({ comment }: ICommentProps) {
   const rootComment = comment.snippet.topLevelComment.snippet;
+
   return (
     <div className={styles.commentContainer} title={rootComment.authorDisplayName}>
       <Link href="/">
@@ -33,6 +34,9 @@ export default function Comment({ comment }: ICommentProps) {
             <span className={styles.likeCount}>{toViewCount(rootComment.likeCount)}</span>
           </a>
         </div>
+        {comment.snippet.totalReplyCount > 0 && (
+          <button className={styles.replies}>{comment.snippet.totalReplyCount} Replies</button>
+        )}
       </div>
     </div>
   );

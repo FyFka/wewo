@@ -1,4 +1,4 @@
-import { IVideoPreview } from "../../shared/interfaces/IVideo";
+import { IVideoPreview } from "../../shared/interfaces/Video";
 import Card from "./card/card";
 import styles from "./videos.module.css";
 

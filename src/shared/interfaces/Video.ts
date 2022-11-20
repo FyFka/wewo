@@ -1,4 +1,4 @@
-import { IPageInfo } from "./IPage";
+import { IPageInfo } from "./Page";
 
 export interface IVideoView {
   kind: string;

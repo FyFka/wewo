@@ -40,3 +40,12 @@
 .like:hover {
   background-color: #272727;
 }
+
+.replies {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #272727;
+  padding: 0.25rem 0.5rem;
+  color: var(--contrast-color);
+}

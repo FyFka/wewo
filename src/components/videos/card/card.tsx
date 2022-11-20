@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { IVideoPreview } from "../../../shared/interfaces/IVideo";
+import { IVideoPreview } from "../../../shared/interfaces/Video";
 import styles from "./card.module.css";
 import { toPublishedAt, toViewCount } from "../../../shared/helpers";
 

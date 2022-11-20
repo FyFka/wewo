@@ -1,6 +1,7 @@
 import Videos from "../../../components/videos/videos";
 import { apiKey, apiHost } from "../../../shared/configuration";
-import { IVideoPreviewList } from "../../../shared/interfaces/IVideo";
+import { CategoryState } from "../../../shared/interfaces/Categories";
+import { IVideoPreviewList } from "../../../shared/interfaces/Video";
 
 async function getVideos() {
   const params = new URLSearchParams({
@@ -8,7 +9,7 @@ async function getVideos() {
     chart: "mostPopular",
     maxResults: "50",
     regionCode: "US",
-    videoCategoryId: "20",
+    videoCategoryId: CategoryState.GAMING,
     key: apiKey,
   });
 
