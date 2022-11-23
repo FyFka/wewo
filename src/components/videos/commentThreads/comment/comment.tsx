@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { IUserComment } from "../../../../shared/interfaces/Comments";
 import { toPublishedAt, toViewCount } from "../../../../shared/helpers";
+import { useState } from "react";
+import Replies from "./replies/replies";
 import styles from "./comment.module.css";
 
 interface ICommentProps {
@@ -10,6 +14,11 @@ interface ICommentProps {
 
 export default function Comment({ comment }: ICommentProps) {
   const rootComment = comment.snippet.topLevelComment.snippet;
+  const [repliesOpen, setRepliesOpen] = useState(false);
+
+  const handleOpenReplies = () => {
+    setRepliesOpen(true);
+  };
 
   return (
     <div className={styles.commentContainer} title={rootComment.authorDisplayName}>
@@ -34,8 +43,13 @@ export default function Comment({ comment }: ICommentProps) {
             <span className={styles.likeCount}>{toViewCount(rootComment.likeCount)}</span>
           </a>
         </div>
-        {comment.snippet.totalReplyCount > 0 && (
-          <button className={styles.replies}>{comment.snippet.totalReplyCount} Replies</button>
+        {comment.snippet.totalReplyCount > 0 && !repliesOpen && (
+          <button onClick={handleOpenReplies} className={styles.replies}>
+            {comment.snippet.totalReplyCount} Replies
+          </button>
+        )}
+        {repliesOpen && comment.replies && (
+          <Replies initReplies={comment.replies.comments} totalReplies={comment.snippet.totalReplyCount} />
         )}
       </div>
     </div>

@@ -1,0 +1,60 @@
+.replies {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.replyContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.authorName {
+  margin: 0;
+}
+
+.authorText {
+  margin: 0;
+}
+
+.publishedAt {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.like {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.15rem;
+  color: #aaa;
+  border-radius: 0.5rem;
+}
+
+.like:hover {
+  background-color: #272727;
+}
+
+.loadMore {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #272727;
+  padding: 0.5rem;
+  color: var(--contrast-color);
+}

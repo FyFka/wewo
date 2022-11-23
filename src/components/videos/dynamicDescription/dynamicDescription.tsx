@@ -28,11 +28,15 @@ export default function DynamicDescription({ description }: IDynamicDescriptionP
   return (
     <>
       {!isUnwrapped && (
-        <button className={styles.unwrap} onClick={handleUnwrap}>
+        <button className={styles.wrapped} onClick={handleUnwrap}>
           <div className={styles.description}>{parsedDescription}</div>
         </button>
       )}
-      {isUnwrapped && <div className={styles.description}>{parsedDescription}</div>}
+      {isUnwrapped && (
+        <div className={styles.unwrapped}>
+          <div className={styles.description}>{parsedDescription}</div>
+        </div>
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-.unwrap {
+.wrapped {
   cursor: pointer;
   width: 100%;
   max-height: 5rem;
@@ -9,8 +9,15 @@
   text-align: initial;
 }
 
-.unwrap:hover {
+.wrapped:hover {
   background-color: #444;
+}
+
+.unwrapped {
+  text-align: initial;
+  background-color: #272727;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .description {

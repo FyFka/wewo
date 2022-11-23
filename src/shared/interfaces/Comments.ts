@@ -23,10 +23,14 @@ export interface IUserComment {
 }
 
 export interface IComment<T = ICommentSnippet> {
-  kind: "youtube#comment";
+  kind: string;
   etag: string;
   id: string;
   snippet: T;
+}
+
+export interface IReplySnippet extends ICommentSnippet {
+  parentId: string;
 }
 
 export interface ICommentSnippet {
@@ -46,6 +50,7 @@ export interface ICommentSnippet {
   viewerRating: string;
 }
 
-export interface IReplySnippet extends ICommentSnippet {
-  parentId: string;
+export interface IReplies {
+  nextPageToken?: string;
+  replies: IComment<IReplySnippet>[];
 }
