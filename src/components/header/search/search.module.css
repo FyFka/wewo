@@ -32,6 +32,7 @@
   position: absolute;
   right: -4.35rem;
   background-color: var(--primary-contrast-color);
+  color: var(--contrast-color);
   border: none;
   padding: 0.5rem 1rem;
   border-top-right-radius: 0.5rem;

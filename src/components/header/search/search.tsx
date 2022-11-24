@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./search.module.css";
 
 export default function Search() {
   const [isFocused, setIsFocused] = useState(false);
   const [search, setSearch] = useState("");
+  const router = useRouter();
 
   const handleApplyFocus = () => {
     setIsFocused(true);
@@ -23,9 +25,9 @@ export default function Search() {
 
   const handleSearch = (evt: React.FormEvent) => {
     evt.preventDefault();
-    console.log("searching for", search);
-    setSearch("");
+    router.push(`/search?${new URLSearchParams({ query: search })}`);
     setIsFocused(false);
+    setSearch("");
   };
 
   return (

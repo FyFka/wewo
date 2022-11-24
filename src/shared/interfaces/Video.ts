@@ -25,6 +25,7 @@ export interface IVideoPreviewList {
   kind: string;
   etag: string;
   items: IVideoPreview[];
+  nextPageToken?: string;
 }
 
 export interface IVideoPreview {
@@ -52,7 +53,7 @@ export interface ISnippet {
   };
 }
 
-interface IThumbnail {
+export interface IThumbnail {
   default: {
     url: string;
     width: number;
@@ -68,7 +69,7 @@ interface IThumbnail {
     width: number;
     height: number;
   };
-  standard: {
+  standard?: {
     url: string;
     width: number;
     height: number;

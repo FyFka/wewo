@@ -31,7 +31,7 @@ export default async function Home() {
   return (
     <>
       <Categories />
-      <Videos videos={videos.items} />
+      <Videos videos={videos.items} pageCategory="Trending" />
     </>
   );
 }

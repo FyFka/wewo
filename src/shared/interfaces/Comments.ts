@@ -33,7 +33,7 @@ export interface IReplySnippet extends ICommentSnippet {
   parentId: string;
 }
 
-export interface ICommentSnippet {
+interface ICommentSnippet {
   authorChannelId: {
     value: string;
   };

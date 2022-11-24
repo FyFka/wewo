@@ -1,0 +1,21 @@
+.videoSearch {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  background-color: var(--primary-color);
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .videoSearch {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .videoSearch {
+    grid-template-columns: 1fr;
+  }
+}

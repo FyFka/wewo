@@ -12,13 +12,25 @@
 }
 
 .preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  aspect-ratio: 5/3;
+}
+
+.imageContainer {
   position: relative;
   background-color: #6f7176;
   height: 100%;
   width: 100%;
-  border-radius: 0.5rem;
   overflow: hidden;
-  aspect-ratio: 5/3;
+  border-radius: 0.5rem;
+}
+
+.channelImage {
+  border-radius: 100%;
+  width: 60%;
 }
 
 .play {
