@@ -1,10 +1,8 @@
-import Categories from "../../components/categories/categories";
-
 import { rapidApiKey, rapidApiHost } from "../../shared/configuration";
 import { URLSearchParams } from "url";
 import { IVideoSearchList } from "../../shared/interfaces/Search";
-import styles from "./search.module.css";
 import Card from "../../components/videos/card/card";
+import styles from "./search.module.css";
 
 async function getSearchVideos(query: string) {
   const params = new URLSearchParams({
@@ -17,14 +15,9 @@ async function getSearchVideos(query: string) {
   const endpoint = `${rapidApiHost}/search?${params}`;
   const res = await fetch(endpoint, {
     cache: "no-store",
-    headers: {
-      "X-RapidAPI-Key": rapidApiKey,
-      "X-RapidAPI-Host": rapidApiHost.slice(8),
-    },
+    headers: { "X-RapidAPI-Key": rapidApiKey, "X-RapidAPI-Host": rapidApiHost.slice(8) },
   });
-  if (!res.ok) {
-    throw new Error("Failed to fetch videos");
-  }
+  if (!res.ok) throw new Error("Failed to fetch videos");
   const data = await res.json();
   return data as IVideoSearchList;
 }

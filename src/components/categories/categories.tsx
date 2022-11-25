@@ -1,9 +1,9 @@
 "use client";
 
-import { RefObject, useEffect, useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import Category from "./category/category";
-import styles from "./categories.module.css";
 import { useObserver } from "../../hooks/useObserver";
+import styles from "./categories.module.css";
 
 const categoriesMock = [
   { to: "/", name: "Trending", icon: "/assets/categories/trending.svg" },

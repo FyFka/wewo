@@ -3,9 +3,9 @@ import { IVideoView } from "../../../shared/interfaces/Video";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import DynamicDescription from "../../../components/videos/dynamicDescription/dynamicDescription";
-import styles from "./video.module.css";
 import { toViewCount } from "../../../shared/helpers";
 import CommentThreads from "../../../components/videos/commentThreads/commentThreads";
+import styles from "./video.module.css";
 
 async function getVideo(videoId: string) {
   const params = new URLSearchParams({
@@ -17,9 +17,7 @@ async function getVideo(videoId: string) {
 
   const endpoint = `${apiHost}/videos?${params}`;
   const res = await fetch(endpoint, { cache: "no-store" });
-  if (!res.ok) {
-    throw new Error("Failed to fetch video");
-  }
+  if (!res.ok) throw new Error("Failed to fetch video");
   const data = await res.json();
   return data as IVideoView;
 }

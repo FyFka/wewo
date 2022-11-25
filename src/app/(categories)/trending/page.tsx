@@ -12,14 +12,8 @@ async function getVideos() {
   });
 
   const endpoint = `${apiHost}/videos?${params}`;
-  const res = await fetch(endpoint, {
-    next: {
-      revalidate: 1800,
-    },
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch videos");
-  }
+  const res = await fetch(endpoint, { next: { revalidate: 1800 } });
+  if (!res.ok) throw new Error("Failed to fetch videos");
   const data = await res.json();
   return data as IVideoPreviewList;
 }
