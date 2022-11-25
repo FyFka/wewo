@@ -29,5 +29,5 @@ async function getVideos() {
 export default async function Music() {
   const videos = await getVideos();
 
-  return <Videos videos={videos.items} pageCategory="Music" />;
+  return <Videos videos={videos.items} pageCategory="Music" pageToken={videos.nextPageToken} />;
 }

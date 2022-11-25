@@ -33,6 +33,11 @@ export interface IReplySnippet extends ICommentSnippet {
   parentId: string;
 }
 
+export interface IReplies {
+  nextPageToken?: string;
+  replies: IComment<IReplySnippet>[];
+}
+
 interface ICommentSnippet {
   authorChannelId: {
     value: string;
@@ -48,9 +53,4 @@ interface ICommentSnippet {
   publishedAt: string;
   videoId: string;
   viewerRating: string;
-}
-
-export interface IReplies {
-  nextPageToken?: string;
-  replies: IComment<IReplySnippet>[];
 }

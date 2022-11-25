@@ -56,7 +56,7 @@ export default function CommentThreads({ videoId, count }: ICommentsProps) {
         {commentThreads?.items.map((comment) => (
           <Comment key={comment.id} comment={comment} />
         ))}
-        <div ref={infiniteScroll as RefObject<HTMLDivElement>} className={styles.infiniteScroll}></div>
+        <div ref={infiniteScroll as RefObject<HTMLDivElement>} className={styles.infiniteScrollTrigger}></div>
       </div>
     </div>
   );

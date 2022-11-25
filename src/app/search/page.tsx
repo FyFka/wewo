@@ -1,8 +1,10 @@
 import Categories from "../../components/categories/categories";
-import VideoSearch from "../../components/videos/videoSearch/videoSearch";
-import { apiKey, apiHost } from "../../shared/configuration";
+
+import { rapidApiKey, rapidApiHost } from "../../shared/configuration";
 import { URLSearchParams } from "url";
 import { IVideoSearchList } from "../../shared/interfaces/Search";
+import styles from "./search.module.css";
+import Card from "../../components/videos/card/card";
 
 async function getSearchVideos(query: string) {
   const params = new URLSearchParams({
@@ -10,11 +12,16 @@ async function getSearchVideos(query: string) {
     q: query,
     maxResults: "50",
     regionCode: "US",
-    key: apiKey,
   });
 
-  const endpoint = `${apiHost}/search?${params}`;
-  const res = await fetch(endpoint, { cache: "no-store" });
+  const endpoint = `${rapidApiHost}/search?${params}`;
+  const res = await fetch(endpoint, {
+    cache: "no-store",
+    headers: {
+      "X-RapidAPI-Key": rapidApiKey,
+      "X-RapidAPI-Host": rapidApiHost.slice(8),
+    },
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch videos");
   }
@@ -26,9 +33,18 @@ export default async function Search({ searchParams }: { searchParams: { query: 
   const videos = await getSearchVideos(searchParams.query);
 
   return (
-    <>
-      <Categories />
-      <VideoSearch videos={videos.items} />
-    </>
+    <section className={styles.search}>
+      {videos.items.map(({ id, snippet }) => (
+        <Card
+          key={id.videoId ? id.videoId : id.channelId}
+          videoId={id.videoId ? id.videoId : id.channelId!}
+          title={snippet.title}
+          channelId={snippet.channelId}
+          channelTitle={snippet.channelTitle}
+          thumbnails={snippet.thumbnails}
+          isChannel={id.kind === "youtube#channel"}
+        />
+      ))}
+    </section>
   );
 }

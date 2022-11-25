@@ -1,0 +1,9 @@
+.infiniteScrollTrigger {
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  z-index: 5999;
+}

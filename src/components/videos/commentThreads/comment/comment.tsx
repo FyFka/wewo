@@ -22,7 +22,7 @@ export default function Comment({ comment }: ICommentProps) {
 
   return (
     <div className={styles.commentContainer} title={rootComment.authorDisplayName}>
-      <Link href="/">
+      <Link href={`/channel/${rootComment.authorChannelId.value}`}>
         <Image
           className={styles.avatar}
           src={rootComment.authorProfileImageUrl}
@@ -32,13 +32,13 @@ export default function Comment({ comment }: ICommentProps) {
         />
       </Link>
       <div>
-        <Link href="/" className={styles.authorInfo}>
+        <Link href={`/channel/${rootComment.authorChannelId.value}`} className={styles.authorInfo}>
           <h4 className={styles.authorName}>{rootComment.authorDisplayName}</h4>
           <span className={styles.publishedAt}>{toPublishedAt(rootComment.publishedAt)}</span>
         </Link>
         <p className={styles.authorComment}>{rootComment.textOriginal}</p>
         <div className={styles.meta}>
-          <a className={styles.like} href="/" title="like">
+          <a className={styles.like} href={`https://www.youtube.com/watch?v=${rootComment.videoId}`} title="like">
             <Image src="/assets/like.svg" width={24} height={24} alt="likes count" />
             <span className={styles.likeCount}>{toViewCount(rootComment.likeCount)}</span>
           </a>

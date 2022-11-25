@@ -42,7 +42,7 @@ export default function Replies({ initReplies, totalReplies }: IRepliesProps) {
     <div className={styles.replies}>
       {replies.map((reply) => (
         <div key={reply.id} className={styles.replyContainer}>
-          <Link href="/">
+          <Link href={`/channel/${reply.snippet.authorChannelId.value}`}>
             <Image
               className={styles.avatar}
               src={reply.snippet.authorProfileImageUrl}
@@ -52,13 +52,13 @@ export default function Replies({ initReplies, totalReplies }: IRepliesProps) {
             />
           </Link>
           <div>
-            <Link href="/" className={styles.authorInfo}>
+            <Link href={`/channel/${reply.snippet.authorChannelId.value}`} className={styles.authorInfo}>
               <h4 className={styles.authorName}>{reply.snippet.authorDisplayName}</h4>
               <span className={styles.publishedAt}>{toPublishedAt(reply.snippet.publishedAt)}</span>
             </Link>
             <p className={styles.authorText}>{reply.snippet.textOriginal}</p>
             <div className={styles.meta}>
-              <a className={styles.like} href="/" title="like">
+              <a className={styles.like} href={`https://www.youtube.com/watch?v=${reply.snippet.videoId}`} title="like">
                 <Image src="/assets/like.svg" width={24} height={24} alt="likes count" />
                 <span className={styles.likeCount}>{toViewCount(reply.snippet.likeCount)}</span>
               </a>

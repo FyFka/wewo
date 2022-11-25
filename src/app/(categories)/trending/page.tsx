@@ -27,5 +27,5 @@ async function getVideos() {
 export default async function Trending() {
   const videos = await getVideos();
 
-  return <Videos videos={videos.items} pageCategory="Trending" />;
+  return <Videos videos={videos.items} pageCategory="Trending" pageToken={videos.nextPageToken} />;
 }

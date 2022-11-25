@@ -1,4 +1,4 @@
-.videoSearch {
+.search {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -9,13 +9,13 @@
 }
 
 @media (max-width: 1024px) {
-  .videoSearch {
+  .search {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .videoSearch {
+  .search {
     grid-template-columns: 1fr;
   }
 }

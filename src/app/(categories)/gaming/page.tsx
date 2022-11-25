@@ -29,5 +29,5 @@ async function getVideos() {
 export default async function Gaming() {
   const videos = await getVideos();
 
-  return <Videos videos={videos.items} pageCategory="Gaming" />;
+  return <Videos videos={videos.items} pageCategory="Gaming" pageToken={videos.nextPageToken} />;
 }

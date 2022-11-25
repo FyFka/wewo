@@ -29,5 +29,5 @@ async function getVideos() {
 export default async function Science() {
   const videos = await getVideos();
 
-  return <Videos videos={videos.items} pageCategory="Science & Technology" />;
+  return <Videos videos={videos.items} pageCategory="Science & Technology" pageToken={videos.nextPageToken} />;
 }

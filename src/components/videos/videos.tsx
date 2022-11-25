@@ -1,13 +1,15 @@
 import { IVideoPreview } from "../../shared/interfaces/Video";
 import Card from "./card/card";
+import InfiniteVideos from "./infiniteVideos/infiniteVideos";
 import styles from "./videos.module.css";
 
 interface IVideosProps {
   videos: IVideoPreview[];
   pageCategory: string;
+  pageToken?: string;
 }
 
-export default function Videos({ videos, pageCategory }: IVideosProps) {
+export default function Videos({ videos, pageCategory, pageToken }: IVideosProps) {
   return (
     <section className={styles.videos}>
       <h2 className={styles.title}>
@@ -25,6 +27,7 @@ export default function Videos({ videos, pageCategory }: IVideosProps) {
             meta={{ viewCount: statistics.viewCount, publishedAt: snippet.publishedAt }}
           />
         ))}
+        <InfiniteVideos pageToken={pageToken} />
       </div>
     </section>
   );
