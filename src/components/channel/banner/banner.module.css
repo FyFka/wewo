@@ -1,0 +1,10 @@
+.banner {
+  position: relative;
+  height: 16vw;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}

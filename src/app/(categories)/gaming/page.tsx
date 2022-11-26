@@ -1,27 +1,9 @@
 import Videos from "../../../components/videos/videos";
-import { apiKey, apiHost } from "../../../shared/configuration";
+import { getVideos } from "../../../external/videos";
 import { CategoryState } from "../../../shared/interfaces/Categories";
-import { IVideoPreviewList } from "../../../shared/interfaces/Video";
-
-async function getVideos() {
-  const params = new URLSearchParams({
-    part: "snippet,contentDetails,statistics",
-    chart: "mostPopular",
-    maxResults: "50",
-    regionCode: "US",
-    videoCategoryId: CategoryState.GAMING,
-    key: apiKey,
-  });
-
-  const endpoint = `${apiHost}/videos?${params}`;
-  const res = await fetch(endpoint, { next: { revalidate: 1800 } });
-  if (!res.ok) throw new Error("Failed to fetch videos");
-  const data = await res.json();
-  return data as IVideoPreviewList;
-}
 
 export default async function Gaming() {
-  const videos = await getVideos();
+  const gamingVideos = await getVideos(CategoryState.GAMING);
 
-  return <Videos videos={videos.items} pageCategory="Gaming" pageToken={videos.nextPageToken} />;
+  return <Videos videos={gamingVideos.items} pageCategory="Gaming" pageToken={gamingVideos.nextPageToken} />;
 }

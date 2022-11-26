@@ -1,29 +1,14 @@
-import { apiHost, apiKey } from "../../../shared/configuration";
-import { IVideoView } from "../../../shared/interfaces/Video";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import DynamicDescription from "../../../components/videos/dynamicDescription/dynamicDescription";
 import { toViewCount } from "../../../shared/helpers";
 import CommentThreads from "../../../components/videos/commentThreads/commentThreads";
+import { getVideoById } from "../../../external/videos";
 import styles from "./video.module.css";
 
-async function getVideo(videoId: string) {
-  const params = new URLSearchParams({
-    part: "snippet,player,contentDetails,statistics",
-    id: videoId,
-    regionCode: "US",
-    key: apiKey,
-  });
+export default async function Video({ params }: { params: { id: string } }) {
+  const videoView = await getVideoById(params.id);
 
-  const endpoint = `${apiHost}/videos?${params}`;
-  const res = await fetch(endpoint, { cache: "no-store" });
-  if (!res.ok) throw new Error("Failed to fetch video");
-  const data = await res.json();
-  return data as IVideoView;
-}
-
-export default async function Page({ params }: { params: { slug: string } }) {
-  const videoView = await getVideo(params.slug);
   if (videoView.items.length === 0) {
     notFound();
   }

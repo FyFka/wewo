@@ -1,4 +1,5 @@
 export enum CategoryState {
+  TRENDING = "0",
   ANIMATION = "1",
   BLOGS = "22",
   GAMING = "20",
