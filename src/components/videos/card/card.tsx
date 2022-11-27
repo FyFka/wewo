@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { IThumbnail } from "../../../shared/interfaces/Video";
+import { IThumbnails } from "../../../shared/interfaces/Video";
 import { toPublishedAt, toViewCount } from "../../../shared/helpers";
 import styles from "./card.module.css";
 
 interface ICardProps {
-  thumbnails: IThumbnail;
+  thumbnails: IThumbnails;
   title: string;
   videoId: string;
   channelId: string;

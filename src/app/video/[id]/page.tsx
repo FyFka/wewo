@@ -15,7 +15,7 @@ export default async function Video({ params }: { params: { id: string } }) {
 
   const video = videoView.items[0];
   return (
-    <div>
+    <section>
       <iframe
         className={styles.playerFrame}
         src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
@@ -36,6 +36,6 @@ export default async function Video({ params }: { params: { id: string } }) {
       </div>
       <DynamicDescription description={video.snippet.description} />
       <CommentThreads videoId={video.id} count={video.statistics.commentCount} />
-    </div>
+    </section>
   );
 }

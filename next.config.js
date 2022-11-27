@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["i.ytimg.com", "yt3.ggpht.com"],
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
   },
 };
 

@@ -1,20 +1,23 @@
 import Image from "next/image";
 import { toViewCount } from "../../../shared/helpers";
+import { IThumbnails } from "../../../shared/interfaces/Video";
 import styles from "./channelPreview.module.css";
 
 interface IChannelPreviewProps {
-  subscribers: number;
+  subscribers: string;
   title: string;
   customUrl: string;
-  avatar: string;
+  thumbnails: IThumbnails;
 }
 
-export default function ChannelPreview({ subscribers, title, avatar, customUrl }: IChannelPreviewProps) {
+export default function ChannelPreview({ subscribers, title, thumbnails, customUrl }: IChannelPreviewProps) {
+  const thumbnail = thumbnails.maxres ? thumbnails.maxres.url : thumbnails.high.url;
+
   return (
     <div className={styles.preview}>
       <div className={styles.info}>
         <div className={styles.avatar}>
-          <Image src={avatar} alt={`${title}'s avatar`} fill />
+          <Image src={thumbnail} alt={`${title}'s avatar`} fill />
         </div>
         <div title={title}>
           <h2 className={styles.title}>{title}</h2>
@@ -22,7 +25,9 @@ export default function ChannelPreview({ subscribers, title, avatar, customUrl }
           <h4 className={styles.viewCount}>{toViewCount(subscribers)} subscribers</h4>
         </div>
       </div>
-      <button className={styles.subscribe}>subscribe</button>
+      <a href={`https://www.youtube.com/${customUrl}`} target="_blank" rel="noreferrer" className={styles.subscribe}>
+        Subscribe
+      </a>
     </div>
   );
 }

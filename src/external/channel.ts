@@ -1,8 +1,9 @@
 import { apiKey, apiHost } from "../shared/configuration";
+import { IChannel } from "../shared/interfaces/Channel";
 
-export async function getChannel(channelId: string): Promise<any> {
+export async function getChannel(channelId: string): Promise<IChannel> {
   const params = new URLSearchParams({
-    part: "snippet,contentDetails,statistics,brandingSettings",
+    part: "snippet, statistics, brandingSettings",
     id: channelId,
     key: apiKey,
   });

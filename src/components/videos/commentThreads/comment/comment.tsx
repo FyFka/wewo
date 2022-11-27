@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { IUserComment } from "../../../../shared/interfaces/Comments";
+import { ICommentItem } from "../../../../shared/interfaces/Comments";
 import { toPublishedAt, toViewCount } from "../../../../shared/helpers";
 import { useState } from "react";
 import Replies from "./replies/replies";
 import styles from "./comment.module.css";
 
 interface ICommentProps {
-  comment: IUserComment;
+  comment: ICommentItem;
 }
 
 export default function Comment({ comment }: ICommentProps) {

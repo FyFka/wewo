@@ -1,3 +1,4 @@
+import { ILocalized } from "./Localized";
 import { IPageInfo } from "./Page";
 
 export interface IVideoView {
@@ -42,18 +43,15 @@ export interface ISnippet {
   channelId: string;
   title: string;
   description: string;
-  thumbnails: IThumbnail;
+  thumbnails: IThumbnails;
   channelTitle: string;
   tags: string[];
   categoryId: string;
   liveBroadcastContent: string;
-  localized: {
-    title: string;
-    description: string;
-  };
+  localized: ILocalized;
 }
 
-export interface IThumbnail {
+export interface IThumbnails {
   default: {
     url: string;
     width: number;

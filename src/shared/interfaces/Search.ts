@@ -1,5 +1,5 @@
 import { IPageInfo } from "./Page";
-import { IThumbnail } from "./Video";
+import { IThumbnails } from "./Video";
 
 export interface IVideoSearchList {
   kind: string;
@@ -19,7 +19,7 @@ export interface IVideoSearch {
     channelId: string;
     title: string;
     description: string;
-    thumbnails: IThumbnail;
+    thumbnails: IThumbnails;
     channelTitle: string;
     liveBroadcastContent: string;
     publishTime: string;

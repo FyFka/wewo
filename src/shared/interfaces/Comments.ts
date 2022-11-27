@@ -2,13 +2,13 @@ import { IPageInfo } from "./Page";
 
 export interface ICommentThreads {
   etag: string;
-  items: IUserComment[];
+  items: ICommentItem[];
   kind: string;
   nextPageToken?: string;
   pageInfo: IPageInfo;
 }
 
-export interface IUserComment {
+export interface ICommentItem {
   etag: string;
   id: string;
   kind: string;
