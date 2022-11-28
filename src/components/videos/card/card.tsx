@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { IThumbnails } from "../../../shared/interfaces/Video";
+import { IThumbnails } from "../../../shared/interfaces/Thumbnails";
 import { toPublishedAt, toViewCount } from "../../../shared/helpers";
 import styles from "./card.module.css";
 
@@ -10,7 +10,7 @@ interface ICardProps {
   thumbnails: IThumbnails;
   title: string;
   videoId: string;
-  channelId: string;
+  channelId?: string;
   channelTitle: string;
   meta?: { viewCount: string; publishedAt: string };
   isChannel?: boolean;
@@ -43,15 +43,17 @@ export default function Card({ thumbnails, title, videoId, channelId, channelTit
         </div>
         <h4 className={styles.title}>{title}</h4>
       </Link>
-      <Link href={`/channel/${channelId}`}>
-        <h5 className={styles.description}>{channelTitle}</h5>
-        {meta && (
-          <h6 className={styles.meta}>
-            {toViewCount(meta.viewCount)} views
-            <span className={styles.published}>{toPublishedAt(meta.publishedAt)}</span>
-          </h6>
-        )}
-      </Link>
+      {channelId && (
+        <Link href={`/channel/${channelId}`}>
+          <h5 className={styles.description}>{channelTitle}</h5>
+          {meta && (
+            <h6 className={styles.meta}>
+              {toViewCount(meta.viewCount)} views
+              <span className={styles.published}>{toPublishedAt(meta.publishedAt)}</span>
+            </h6>
+          )}
+        </Link>
+      )}
     </div>
   );
 }

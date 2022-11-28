@@ -1,6 +1,6 @@
 import { ILocalized } from "./Localized";
 import { IPageInfo } from "./Page";
-import { IThumbnails } from "./Video";
+import { IThumbnails } from "./Thumbnails";
 
 export interface IChannel {
   kind: string;

@@ -1,4 +1,4 @@
-export enum CategoryState {
+export enum CategoryEnum {
   TRENDING = "0",
   ANIMATION = "1",
   BLOGS = "22",

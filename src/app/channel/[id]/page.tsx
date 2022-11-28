@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import Banner from "../../../components/channel/banner/banner";
 import ChannelPreview from "../../../components/channel/channelPreview/channelPreview";
+import ChannelVideos from "../../../components/channel/channelVideos/channelVideos";
 import Trailer from "../../../components/channel/trailer/trailer";
 import { getChannel } from "../../../external/channel";
-import { getVideoById } from "../../../external/videos";
+import { getVideoById, getVideosByKey } from "../../../external/videos";
 
 export default async function Channel({ params }: { params: { id: string } }) {
-  const channel = await getChannel(params.id);
+  const [channel, videos] = await Promise.all([getChannel(params.id), getVideosByKey(params.id, "channelId")]);
   let videoTrailer = null;
 
   if (!channel.items[0]) {
@@ -31,7 +32,7 @@ export default async function Channel({ params }: { params: { id: string } }) {
         customUrl={channelItem.snippet.customUrl}
       />
       {videoTrailer && <Trailer trailer={videoTrailer} />}
-      <pre>{JSON.stringify(channel, null, 2)}</pre>
+      <ChannelVideos videos={videos.items} />
     </section>
   );
 }

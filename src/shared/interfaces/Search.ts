@@ -1,16 +1,23 @@
 import { IPageInfo } from "./Page";
-import { IThumbnails } from "./Video";
+import { IThumbnails } from "./Thumbnails";
 
-export interface IVideoSearchList {
+export interface IVideoSearch {
   kind: string;
   etag: string;
   nextPageToken: string;
   regionCode: string;
   pageInfo: IPageInfo;
-  items: IVideoSearch[];
+  items: IVideoSearchItem[];
 }
 
-export interface IVideoSearch {
+interface IVideoSearchId {
+  kind: string;
+  videoId?: string;
+  channelId?: string;
+  playlistId?: string;
+}
+
+export interface IVideoSearchItem {
   kind: string;
   etag: string;
   id: IVideoSearchId;
@@ -24,10 +31,4 @@ export interface IVideoSearch {
     liveBroadcastContent: string;
     publishTime: string;
   };
-}
-
-interface IVideoSearchId {
-  kind: string;
-  videoId?: string;
-  channelId?: string;
 }

@@ -1,7 +1,15 @@
 import { ILocalized } from "./Localized";
 import { IPageInfo } from "./Page";
+import { IThumbnails } from "./Thumbnails";
 
-export interface IVideoView {
+export interface IVideoPreviewList {
+  kind: string;
+  etag: string;
+  items: IVideoPreview[];
+  nextPageToken?: string;
+}
+
+export interface IVideoList {
   kind: string;
   etag: string;
   items: [IVideo] | [];
@@ -22,13 +30,6 @@ export interface IPlayer {
   embedHtml: string;
 }
 
-export interface IVideoPreviewList {
-  kind: string;
-  etag: string;
-  items: IVideoPreview[];
-  nextPageToken?: string;
-}
-
 export interface IVideoPreview {
   kind: string;
   etag: string;
@@ -38,7 +39,7 @@ export interface IVideoPreview {
   statistics: IStatistics;
 }
 
-export interface ISnippet {
+interface ISnippet {
   publishedAt: string;
   channelId: string;
   title: string;
@@ -49,34 +50,6 @@ export interface ISnippet {
   categoryId: string;
   liveBroadcastContent: string;
   localized: ILocalized;
-}
-
-export interface IThumbnails {
-  default: {
-    url: string;
-    width: number;
-    height: number;
-  };
-  medium: {
-    url: string;
-    width: number;
-    height: number;
-  };
-  high: {
-    url: string;
-    width: number;
-    height: number;
-  };
-  standard?: {
-    url: string;
-    width: number;
-    height: number;
-  };
-  maxres?: {
-    url: string;
-    width: number;
-    height: number;
-  };
 }
 
 interface IContentDetails {

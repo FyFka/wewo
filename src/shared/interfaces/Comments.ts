@@ -8,6 +8,17 @@ export interface ICommentThreads {
   pageInfo: IPageInfo;
 }
 
+export interface IComment<T = ICommentSnippet> {
+  kind: string;
+  etag: string;
+  id: string;
+  snippet: T;
+}
+
+export interface IReplySnippet extends ICommentSnippet {
+  parentId: string;
+}
+
 export interface ICommentItem {
   etag: string;
   id: string;
@@ -20,17 +31,6 @@ export interface ICommentItem {
     videoId: string;
   };
   replies?: { comments: IComment<IReplySnippet>[] };
-}
-
-export interface IComment<T = ICommentSnippet> {
-  kind: string;
-  etag: string;
-  id: string;
-  snippet: T;
-}
-
-export interface IReplySnippet extends ICommentSnippet {
-  parentId: string;
 }
 
 export interface IReplies {

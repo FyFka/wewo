@@ -1,0 +1,16 @@
+.videosContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  background-color: var(--primary-color);
+  border-radius: 0.5rem;
+}
+
+.withoutVideos {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+  grid-column: 1 / -1;
+}

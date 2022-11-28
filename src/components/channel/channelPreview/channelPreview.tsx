@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { toViewCount } from "../../../shared/helpers";
-import { IThumbnails } from "../../../shared/interfaces/Video";
+import { IThumbnails } from "../../../shared/interfaces/Thumbnails";
 import styles from "./channelPreview.module.css";
 
 interface IChannelPreviewProps {
