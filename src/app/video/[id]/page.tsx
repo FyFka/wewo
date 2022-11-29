@@ -7,13 +7,13 @@ import { getVideoById } from "../../../external/videos";
 import styles from "./video.module.css";
 
 export default async function Video({ params }: { params: { id: string } }) {
-  const videoView = await getVideoById(params.id);
+  const videoList = await getVideoById(params.id);
 
-  if (videoView.items.length === 0) {
+  if (videoList.items.length === 0) {
     notFound();
   }
 
-  const video = videoView.items[0];
+  const video = videoList.items[0];
   return (
     <section>
       <iframe

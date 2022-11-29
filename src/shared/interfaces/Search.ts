@@ -4,13 +4,13 @@ import { IThumbnails } from "./Thumbnails";
 export interface IVideoSearch {
   kind: string;
   etag: string;
-  nextPageToken: string;
+  nextPageToken?: string;
   regionCode: string;
   pageInfo: IPageInfo;
   items: IVideoSearchItem[];
 }
 
-interface IVideoSearchId {
+export interface IVideoSearchId {
   kind: string;
   videoId?: string;
   channelId?: string;

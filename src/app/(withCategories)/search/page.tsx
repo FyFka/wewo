@@ -1,5 +1,6 @@
-import Card from "../../components/videos/card/card";
-import { getVideosByKey } from "../../external/videos";
+import Card from "../../../components/videos/card/card";
+import LoadableSearch from "../../../components/videos/loadable/loadableSearch";
+import { getVideosByKey } from "../../../external/videos";
 import styles from "./search.module.css";
 
 export default async function Search({ searchParams }: { searchParams?: { query: string } }) {
@@ -10,7 +11,7 @@ export default async function Search({ searchParams }: { searchParams?: { query:
       {videos.items.map(({ id, snippet }) => (
         <Card
           key={snippet.publishedAt}
-          videoId={id.videoId ? id.videoId : id.channelId!}
+          videoId={id}
           title={snippet.title}
           channelId={snippet.channelId}
           channelTitle={snippet.channelTitle}
@@ -18,6 +19,7 @@ export default async function Search({ searchParams }: { searchParams?: { query:
           isChannel={id.kind === "youtube#channel"}
         />
       ))}
+      <LoadableSearch initPageToken={videos.nextPageToken} />
     </section>
   );
 }

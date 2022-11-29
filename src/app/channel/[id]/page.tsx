@@ -8,20 +8,21 @@ import { getVideoById, getVideosByKey } from "../../../external/videos";
 
 export default async function Channel({ params }: { params: { id: string } }) {
   const [channel, videos] = await Promise.all([getChannel(params.id), getVideosByKey(params.id, "channelId")]);
-  let videoTrailer = null;
 
   if (!channel.items[0]) {
     notFound();
   }
 
-  if (channel.items[0].brandingSettings.channel.unsubscribedTrailer) {
-    const buffer = await getVideoById(channel.items[0].brandingSettings.channel.unsubscribedTrailer);
-    if (buffer.items[0]) {
-      videoTrailer = buffer.items[0];
+  let trailer = null;
+  const channelItem = channel.items[0];
+
+  if (channelItem.brandingSettings.channel.unsubscribedTrailer) {
+    const channelTrailer = await getVideoById(channelItem.brandingSettings.channel.unsubscribedTrailer);
+    if (channelTrailer.items[0]) {
+      trailer = channelTrailer.items[0];
     }
   }
 
-  const channelItem = channel.items[0];
   return (
     <section>
       <Banner source={channelItem.brandingSettings.image?.bannerExternalUrl} />
@@ -31,7 +32,7 @@ export default async function Channel({ params }: { params: { id: string } }) {
         subscribers={channelItem.statistics.subscriberCount}
         customUrl={channelItem.snippet.customUrl}
       />
-      {videoTrailer && <Trailer trailer={videoTrailer} />}
+      {trailer && <Trailer trailer={trailer} />}
       <ChannelVideos videos={videos.items} />
     </section>
   );

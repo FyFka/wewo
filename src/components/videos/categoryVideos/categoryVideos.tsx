@@ -1,7 +1,7 @@
-import { IVideoPreview } from "../../shared/interfaces/Video";
-import Card from "./card/card";
-import InfiniteVideos from "./infiniteVideos/infiniteVideos";
-import styles from "./videos.module.css";
+import { IVideoPreview } from "../../../shared/interfaces/Video";
+import Card from "../card/card";
+import LoadableCategory from "../loadable/loadableCategory";
+import styles from "./categoryVideos.module.css";
 
 interface IVideosProps {
   videos: IVideoPreview[];
@@ -9,7 +9,7 @@ interface IVideosProps {
   pageToken?: string;
 }
 
-export default function Videos({ videos, pageCategory, pageToken }: IVideosProps) {
+export default function CategoryVideos({ videos, pageCategory, pageToken }: IVideosProps) {
   return (
     <section className={styles.videos}>
       <h2 className={styles.title}>
@@ -27,7 +27,7 @@ export default function Videos({ videos, pageCategory, pageToken }: IVideosProps
             meta={{ viewCount: statistics.viewCount, publishedAt: snippet.publishedAt }}
           />
         ))}
-        <InfiniteVideos pageToken={pageToken} />
+        <LoadableCategory initPageToken={pageToken} />
       </div>
     </section>
   );
