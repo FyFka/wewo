@@ -1,3 +1,4 @@
+import { CategoryEnum } from "../../../shared/interfaces/Categories";
 import { IVideoPreview } from "../../../shared/interfaces/Video";
 import Card from "../card/card";
 import LoadableCategory from "../loadable/loadableCategory";
@@ -5,11 +6,12 @@ import styles from "./categoryVideos.module.css";
 
 interface IVideosProps {
   videos: IVideoPreview[];
+  category: CategoryEnum;
   pageCategory: string;
   pageToken?: string;
 }
 
-export default function CategoryVideos({ videos, pageCategory, pageToken }: IVideosProps) {
+export default function CategoryVideos({ videos, pageCategory, pageToken, category }: IVideosProps) {
   return (
     <section className={styles.videos}>
       <h2 className={styles.title}>
@@ -27,7 +29,7 @@ export default function CategoryVideos({ videos, pageCategory, pageToken }: IVid
             meta={{ viewCount: statistics.viewCount, publishedAt: snippet.publishedAt }}
           />
         ))}
-        <LoadableCategory initPageToken={pageToken} />
+        <LoadableCategory category={category} initPageToken={pageToken} />
       </div>
     </section>
   );

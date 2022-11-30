@@ -3,9 +3,11 @@ import { rapidApiHost, rapidApiKey } from "../../shared/configuration";
 import { IVideoPreviewList } from "../../shared/interfaces/Video";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<IVideoPreviewList>) {
+  const channelId = req.query.channelId as string;
   const params = new URLSearchParams({
     part: "snippet",
     pageToken: req.query.pageToken as string,
+    ...(channelId && { channelId }),
     maxResults: "50",
     regionCode: "US",
   });

@@ -24,11 +24,7 @@ export default function Replies({ initReplies, totalReplies }: IRepliesProps) {
       ...(pageToken.current && { pageToken: pageToken.current }),
     });
     const res = await fetch(`/api/replies?${params}`);
-    if (!res.ok) {
-      throw new Error("Failed to fetch comment threads");
-    }
     const nextReplies = (await res.json()) as IReplies;
-
     if (isFirstLoad.current) {
       isFirstLoad.current = false;
     }

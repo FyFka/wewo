@@ -8,6 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     chart: "mostPopular",
     maxResults: "50",
     pageToken: req.query.pageToken as string,
+    videoCategoryId: req.query.categoryId as string,
     regionCode: "US",
     key: apiKey,
   });

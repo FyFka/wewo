@@ -3,11 +3,14 @@ import Banner from "../../../components/channel/banner/banner";
 import ChannelPreview from "../../../components/channel/channelPreview/channelPreview";
 import ChannelVideos from "../../../components/channel/channelVideos/channelVideos";
 import Trailer from "../../../components/channel/trailer/trailer";
-import { getChannel } from "../../../external/channel";
+import { getChannelById } from "../../../external/channel";
 import { getVideoById, getVideosByKey } from "../../../external/videos";
 
 export default async function Channel({ params }: { params: { id: string } }) {
-  const [channel, videos] = await Promise.all([getChannel(params.id), getVideosByKey(params.id, "channelId")]);
+  const [channel, videos] = await Promise.all([
+    getChannelById(params.id),
+    getVideosByKey(params.id, "channelId", "video"),
+  ]);
 
   if (!channel.items[0]) {
     notFound();
@@ -33,7 +36,7 @@ export default async function Channel({ params }: { params: { id: string } }) {
         customUrl={channelItem.snippet.customUrl}
       />
       {trailer && <Trailer trailer={trailer} />}
-      <ChannelVideos videos={videos.items} />
+      <ChannelVideos channelId={channelItem.id} videos={videos.items} initPageToken={videos.nextPageToken} />
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { CategoryEnum } from "../shared/interfaces/Categories";
 import { IVideoSearch } from "../shared/interfaces/Search";
 import { IVideoPreviewList, IVideoList } from "../shared/interfaces/Video";
 
-export async function getVideos(categoryId: CategoryEnum): Promise<IVideoPreviewList> {
+export async function getVideosByCategory(categoryId: CategoryEnum): Promise<IVideoPreviewList> {
   const params = new URLSearchParams({
     part: "snippet,contentDetails,statistics",
     chart: "mostPopular",
@@ -20,9 +20,10 @@ export async function getVideos(categoryId: CategoryEnum): Promise<IVideoPreview
   return data;
 }
 
-export async function getVideosByKey(query: string, key: string = "q"): Promise<IVideoSearch> {
+export async function getVideosByKey(query: string, key: string = "q", type?: string): Promise<IVideoSearch> {
   const params = new URLSearchParams({
     part: "snippet",
+    ...(type && { type }),
     [key]: query,
     maxResults: "50",
     regionCode: "US",

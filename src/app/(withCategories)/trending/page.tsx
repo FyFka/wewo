@@ -1,11 +1,16 @@
 import CategoryVideos from "../../../components/videos/categoryVideos/categoryVideos";
-import { getVideos } from "../../../external/videos";
+import { getVideosByCategory } from "../../../external/videos";
 import { CategoryEnum } from "../../../shared/interfaces/Categories";
 
 export default async function Trending() {
-  const trendingVideos = await getVideos(CategoryEnum.TRENDING);
+  const trendingVideos = await getVideosByCategory(CategoryEnum.TRENDING);
 
   return (
-    <CategoryVideos videos={trendingVideos.items} pageCategory="Trending" pageToken={trendingVideos.nextPageToken} />
+    <CategoryVideos
+      category={CategoryEnum.TRENDING}
+      videos={trendingVideos.items}
+      pageCategory="Trending"
+      pageToken={trendingVideos.nextPageToken}
+    />
   );
 }

@@ -14,9 +14,9 @@ interface ICommentsProps {
 
 export default function CommentThreads({ videoId, count }: ICommentsProps) {
   const [commentThreads, setCommentThreads] = useState<ICommentThreads>();
-  const infiniteScroll = useRef<HTMLDivElement>();
+  const scrollTrigger = useRef<HTMLDivElement>();
   const observerValue = useRef<ICommentThreads>();
-  useObserver({ target: infiniteScroll, onIntersect: handleLoadMore });
+  useObserver({ target: scrollTrigger, onIntersect: handleLoadMore });
 
   useEffect(() => {
     observerValue.current = commentThreads;
@@ -26,11 +26,8 @@ export default function CommentThreads({ videoId, count }: ICommentsProps) {
     (async () => {
       const params = new URLSearchParams({ videoId });
       const res = await fetch(`/api/commentThreads?${params}`);
-      if (!res.ok) {
-        throw new Error("Failed to fetch comment threads");
-      }
-      const threads = (await res.json()) as ICommentThreads;
-      setCommentThreads(threads);
+      const threads = await res.json();
+      setCommentThreads(threads as ICommentThreads);
     })();
   }, []);
 
@@ -38,13 +35,10 @@ export default function CommentThreads({ videoId, count }: ICommentsProps) {
     if (entry.isIntersecting && observerValue.current?.nextPageToken) {
       const params = new URLSearchParams({ videoId, pageToken: observerValue.current.nextPageToken });
       const res = await fetch(`/api/commentThreads?${params}`);
-      if (!res.ok) {
-        throw new Error("Failed to fetch comment threads");
-      }
-      const newThreads = (await res.json()) as ICommentThreads;
-      if (observerValue.current.nextPageToken === newThreads.nextPageToken) return;
+      const threads = (await res.json()) as ICommentThreads;
+      if (observerValue.current.nextPageToken === threads.nextPageToken) return;
       setCommentThreads((prev) => {
-        return prev ? { ...newThreads, items: [...prev.items, ...newThreads.items] } : prev;
+        return prev ? { ...threads, items: [...prev.items, ...threads.items] } : prev;
       });
     }
   }
@@ -56,7 +50,7 @@ export default function CommentThreads({ videoId, count }: ICommentsProps) {
         {commentThreads?.items.map((comment) => (
           <Comment key={comment.id} comment={comment} />
         ))}
-        <div ref={infiniteScroll as RefObject<HTMLDivElement>} className={styles.infiniteScrollTrigger}></div>
+        <div ref={scrollTrigger as RefObject<HTMLDivElement>} className={styles.infiniteScrollTrigger}></div>
       </div>
     </div>
   );

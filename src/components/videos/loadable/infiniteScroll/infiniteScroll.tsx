@@ -11,9 +11,9 @@ interface InfiniteScrollProps {
 
 export default function InfiniteScroll({ children, onTrigger }: InfiniteScrollProps) {
   const scrollTrigger = useRef<HTMLDivElement>();
-  useObserver({ target: scrollTrigger, onIntersect: handleLoadVideos });
+  useObserver({ target: scrollTrigger, onIntersect: handleTrigger });
 
-  function handleLoadVideos([entry]: IntersectionObserverEntry[]) {
+  function handleTrigger([entry]: IntersectionObserverEntry[]) {
     if (entry.isIntersecting) {
       onTrigger();
     }

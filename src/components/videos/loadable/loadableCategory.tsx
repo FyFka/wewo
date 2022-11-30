@@ -1,31 +1,33 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { CategoryEnum } from "../../../shared/interfaces/Categories";
 import { IVideoPreview } from "../../../shared/interfaces/Video";
 import Card from "../card/card";
 import InfiniteScroll from "./infiniteScroll/infiniteScroll";
 
 interface ILoadableCategoryProps {
   initPageToken?: string;
+  category: CategoryEnum;
 }
 
-export default function LoadableCategory({ initPageToken }: ILoadableCategoryProps) {
+export default function LoadableCategory({ initPageToken, category }: ILoadableCategoryProps) {
   const pageToken = useRef(initPageToken || "");
-  const [searchVideos, setSearchVideos] = useState<IVideoPreview[]>([]);
+  const [categoryVideos, setCategoryVideos] = useState<IVideoPreview[]>([]);
 
   const handleLoadSearch = async () => {
     if (pageToken.current) {
-      const params = new URLSearchParams({ pageToken: pageToken.current });
+      const params = new URLSearchParams({ pageToken: pageToken.current, categoryId: category });
       const res = await fetch(`/api/category?${params}`);
       const videoList = await res.json();
       pageToken.current = videoList.nextPageToken || "";
-      setSearchVideos((prev) => [...prev, ...videoList.items]);
+      setCategoryVideos((prev) => [...prev, ...videoList.items]);
     }
   };
 
   return (
     <InfiniteScroll onTrigger={handleLoadSearch}>
-      {searchVideos.map(({ id, snippet, statistics }) => (
+      {categoryVideos.map(({ id, snippet, statistics }) => (
         <Card
           key={id}
           videoId={id}

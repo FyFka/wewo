@@ -25,18 +25,17 @@ export default function DynamicDescription({ description }: IDynamicDescriptionP
   };
 
   const parsedDescription = useMemo(parseDescription, [description]);
-  return (
-    <>
-      {!isUnwrapped && (
-        <button className={styles.wrapped} onClick={handleUnwrap}>
-          <div className={styles.description}>{parsedDescription}</div>
-        </button>
-      )}
-      {isUnwrapped && (
-        <div className={styles.unwrapped}>
-          <div className={styles.description}>{parsedDescription}</div>
-        </div>
-      )}
-    </>
-  );
+  if (isUnwrapped) {
+    return (
+      <div className={styles.unwrapped}>
+        <div className={styles.description}>{parsedDescription}</div>
+      </div>
+    );
+  } else {
+    return (
+      <button className={styles.wrapped} onClick={handleUnwrap}>
+        <div className={styles.description}>{parsedDescription}</div>
+      </button>
+    );
+  }
 }

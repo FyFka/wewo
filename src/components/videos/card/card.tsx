@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { IThumbnails } from "../../../shared/interfaces/Thumbnails";
 import { toPublishedAt, toViewCount } from "../../../shared/helpers";
-import styles from "./card.module.css";
 import { IVideoSearchId } from "../../../shared/interfaces/Search";
+import styles from "./card.module.css";
 
 interface ICardProps {
   thumbnails: IThumbnails;
@@ -21,21 +21,18 @@ export default function Card({ thumbnails, title, videoId, channelId, channelTit
   const thumbnail = thumbnails.maxres ? thumbnails.maxres.url : thumbnails.high.url;
 
   const getId = (id: string | IVideoSearchId) => {
-    if (typeof id === "string") {
-      return id;
-    } else if (id.videoId) {
-      return id.videoId!;
+    const bufId = id;
+    if (typeof bufId === "string") {
+      return bufId;
+    } else if (bufId.videoId) {
+      return bufId.videoId;
     }
-    return id.playlistId!;
+    return bufId.playlistId;
   };
 
   return (
     <div className={styles.card}>
-      <Link
-        prefetch={false}
-        className={styles.previewContainer}
-        href={isChannel ? `/channel/${channelId}` : `/video/${getId(videoId)}`}
-      >
+      <Link className={styles.previewContainer} href={isChannel ? `/channel/${channelId}` : `/video/${getId(videoId)}`}>
         <div className={styles.preview} title={title}>
           <div className={`${styles.imageContainer} ${isChannel ? styles.channelImage : ""}`}>
             <Image
@@ -58,7 +55,7 @@ export default function Card({ thumbnails, title, videoId, channelId, channelTit
         <h4 className={styles.title}>{title}</h4>
       </Link>
       {channelId && (
-        <Link prefetch={false} href={`/channel/${channelId}`}>
+        <Link href={`/channel/${channelId}`}>
           <h5 className={styles.description}>{channelTitle}</h5>
           {meta && (
             <h6 className={styles.meta}>

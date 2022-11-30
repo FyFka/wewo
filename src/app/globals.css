@@ -44,3 +44,7 @@ a {
 *::-webkit-scrollbar-corner {
   background-color: #1e2224;
 }
+
+.main {
+  margin: 0 1rem;
+}
