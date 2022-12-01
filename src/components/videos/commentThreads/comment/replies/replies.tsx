@@ -57,7 +57,7 @@ export default function Replies({ initReplies, totalReplies, parentId }: IReplie
             <p className={styles.authorText}>{reply.snippet.textOriginal}</p>
             <div className={styles.meta}>
               <a className={styles.like} href={`https://www.youtube.com/watch?v=${reply.snippet.videoId}`} title="like">
-                <Image src="/assets/like.svg" width={24} height={24} alt="likes count" />
+                <Image className={styles.likeIcon} src="/assets/like.svg" width={24} height={24} alt="likes count" />
                 <span className={styles.likeCount}>{toViewCount(reply.snippet.likeCount)}</span>
               </a>
             </div>

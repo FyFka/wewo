@@ -13,6 +13,7 @@
 .categoryName {
   white-space: nowrap;
   margin: 0;
+  color: var(--contrast-color);
   font-size: 1rem;
 }
 
@@ -26,4 +27,8 @@
   flex: 1 1;
   background-color: transparent;
   padding: 0 2rem;
+}
+
+.categoryIcon {
+  filter: invert(var(--image-invert-color));
 }

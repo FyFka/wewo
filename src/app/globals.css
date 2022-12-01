@@ -1,8 +1,25 @@
-html {
+html[data-theme="dark"] {
   --primary-color: #101113;
   --primary-contrast-color: #0a0b0c;
-  --contrast-color: #ececec;
   --secondary-color: #151719;
+  --third-color: #272727;
+  --third-dark-color: #444;
+  --contrast-color: #ececec;
+  --blur-color: rgba(21, 23, 25, 0.95);
+  --image-invert-color: 0%;
+  --scrollbar-color: #1e2224;
+}
+
+html[data-theme="light"] {
+  --primary-color: #efeeec;
+  --primary-contrast-color: #f5f4f3;
+  --secondary-color: #ddd;
+  --third-color: #cacaca;
+  --third-dark-color: #aaa;
+  --contrast-color: #131313;
+  --blur-color: rgba(234, 232, 230, 0.95);
+  --image-invert-color: 100%;
+  --scrollbar-color: #e1dddb;
 }
 
 body {
@@ -33,7 +50,7 @@ a {
 }
 
 *::-webkit-scrollbar-track-piece {
-  background-color: #1e2224;
+  background-color: var(--scrollbar-color);
 }
 
 *::-webkit-scrollbar-thumb {
@@ -42,9 +59,13 @@ a {
 }
 
 *::-webkit-scrollbar-corner {
-  background-color: #1e2224;
+  background-color: var(--scrollbar-color);
 }
 
 #root-layout {
   margin: 0 1rem;
+}
+
+.invert {
+  filter: invert(100%);
 }

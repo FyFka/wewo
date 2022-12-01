@@ -16,6 +16,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
   aspect-ratio: 5/3;
 }
 

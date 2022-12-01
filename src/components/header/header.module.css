@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(21, 23, 25, 0.95);
+  background-color: var(--blur-color);
   backdrop-filter: saturate(180%) blur(1.25rem);
   padding: 1rem;
   z-index: 7999;

@@ -47,14 +47,18 @@
 }
 
 .like:hover {
-  background-color: #272727;
+  background-color: var(--third-color);
 }
 
 .loadMore {
   cursor: pointer;
   border: none;
   border-radius: 0.5rem;
-  background-color: #272727;
+  background-color: var(--third-color);
   padding: 0.5rem;
   color: var(--contrast-color);
+}
+
+.likeIcon {
+  filter: invert(var(--image-invert-color));
 }

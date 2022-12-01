@@ -5,17 +5,17 @@
   overflow: hidden;
   border-radius: 0.5rem;
   border: none;
-  background-color: #272727;
+  background-color: var(--third-color);
   text-align: initial;
 }
 
 .wrapped:hover {
-  background-color: #444;
+  background-color: var(--third-dark-color);
 }
 
 .unwrapped {
   text-align: initial;
-  background-color: #272727;
+  background-color: var(--third-color);
   padding: 0.5rem;
   border-radius: 0.5rem;
 }

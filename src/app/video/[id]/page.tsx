@@ -30,7 +30,7 @@ export default async function Video({ params }: { params: { id: string } }) {
           target="_blank"
           rel="noreferrer"
         >
-          <Image width={24} height={24} src="/assets/like.svg" alt="likes count" />
+          <Image className={styles.likeIcon} width={24} height={24} src="/assets/like.svg" alt="likes count" />
           <span>{toViewCount(video.statistics.likeCount)}</span>
         </a>
       </div>

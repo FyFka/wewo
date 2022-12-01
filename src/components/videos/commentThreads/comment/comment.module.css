@@ -15,10 +15,12 @@
 
 .authorName {
   margin: 0;
+  color: var(--contrast-color);
 }
 
 .authorComment {
   margin: 0;
+  color: var(--contrast-color);
 }
 
 .publishedAt {
@@ -38,14 +40,18 @@
 }
 
 .like:hover {
-  background-color: #272727;
+  background-color: var(--third-color);
 }
 
 .replies {
   cursor: pointer;
   border: none;
   border-radius: 0.5rem;
-  background-color: #272727;
+  background-color: var(--third-color);
   padding: 0.25rem 0.5rem;
   color: var(--contrast-color);
+}
+
+.likeIcon {
+  filter: invert(var(--image-invert-color));
 }
