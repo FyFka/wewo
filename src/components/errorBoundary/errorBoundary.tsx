@@ -10,7 +10,7 @@ interface IErrorBoundaryProps {
 
 export default function ErrorBoundary({ error, reset }: IErrorBoundaryProps) {
   useEffect(() => {
-    console.error(error.cause);
+    console.error(error.message);
   }, [error]);
 
   const handleReset = () => {

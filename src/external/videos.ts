@@ -1,9 +1,9 @@
 import { apiKey, apiHost, rapidApiHost, rapidApiKey } from "../shared/configuration";
 import { CategoryEnum } from "../shared/interfaces/Categories";
 import { IVideoSearch } from "../shared/interfaces/Search";
-import { IVideoPreviewList, IVideoList } from "../shared/interfaces/Video";
+import { IVideoPreview, IVideoView } from "../shared/interfaces/Video";
 
-export async function getVideosByCategory(categoryId: CategoryEnum): Promise<IVideoPreviewList> {
+export async function getVideosByCategory(categoryId: CategoryEnum): Promise<IVideoPreview> {
   const params = new URLSearchParams({
     part: "snippet,contentDetails,statistics",
     chart: "mostPopular",
@@ -39,7 +39,7 @@ export async function getVideosByKey(query: string, key: string = "q", type?: st
   return data;
 }
 
-export async function getVideoById(videoId: string): Promise<IVideoList> {
+export async function getVideoById(videoId: string): Promise<IVideoView> {
   const params = new URLSearchParams({
     part: "snippet,player,contentDetails,statistics",
     id: videoId,

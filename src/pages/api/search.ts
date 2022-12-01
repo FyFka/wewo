@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { rapidApiHost, rapidApiKey } from "../../shared/configuration";
-import { IVideoPreviewList } from "../../shared/interfaces/Video";
+import { IVideoSearch } from "../../shared/interfaces/Search";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<IVideoPreviewList>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<IVideoSearch>) {
   const channelId = req.query.channelId as string;
   const params = new URLSearchParams({
     part: "snippet",

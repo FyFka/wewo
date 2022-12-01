@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { apiHost, apiKey } from "../../shared/configuration";
-import { IVideoPreviewList } from "../../shared/interfaces/Video";
+import { IVideoPreview } from "../../shared/interfaces/Video";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<IVideoPreviewList>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<IVideoPreview>) {
   const params = new URLSearchParams({
     part: "snippet,contentDetails,statistics",
     chart: "mostPopular",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { IVideoSearchItem } from "../../../shared/interfaces/Search";
+import { IVideoSearch, IVideoSearchItem } from "../../../shared/interfaces/Search";
 import Card from "../card/card";
 import InfiniteScroll from "./infiniteScroll/infiniteScroll";
 
@@ -17,9 +17,9 @@ export default function LoadableSearch({ initPageToken }: ILoadableSearchProps) 
     if (pageToken.current) {
       const params = new URLSearchParams({ pageToken: pageToken.current });
       const res = await fetch(`/api/search?${params}`);
-      const videoList = await res.json();
-      pageToken.current = videoList.nextPageToken || "";
-      setSearchVideos((prev) => [...prev, ...videoList.items]);
+      const { nextPageToken, items }: IVideoSearch = await res.json();
+      pageToken.current = nextPageToken || "";
+      setSearchVideos((prev) => [...prev, ...items]);
     }
   };
 

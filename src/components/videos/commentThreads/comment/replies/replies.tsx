@@ -9,31 +9,33 @@ import styles from "./replies.module.css";
 
 interface IRepliesProps {
   initReplies: IComment<IReplySnippet>[];
+  parentId: string;
   totalReplies: number;
 }
 
-export default function Replies({ initReplies, totalReplies }: IRepliesProps) {
-  const isFirstLoad = useRef(true);
+export default function Replies({ initReplies, totalReplies, parentId }: IRepliesProps) {
+  const skipCount = useRef(initReplies.length);
   const pageToken = useRef<string>();
   const [replies, setReplies] = useState<IComment<IReplySnippet>[]>(initReplies);
 
   const handleLoadMore = async () => {
     const params = new URLSearchParams({
-      parentId: replies.at(-1)!.snippet.parentId,
-      skip: isFirstLoad.current ? initReplies.length.toString() : "0",
+      parentId,
+      skip: skipCount.current.toString(),
       ...(pageToken.current && { pageToken: pageToken.current }),
     });
     const res = await fetch(`/api/replies?${params}`);
-    const nextReplies = (await res.json()) as IReplies;
-    if (isFirstLoad.current) {
-      isFirstLoad.current = false;
+    const nextReplies: IReplies = await res.json();
+    if (skipCount.current !== 0) {
+      skipCount.current = 0;
     }
     pageToken.current = nextReplies.nextPageToken;
     setReplies((repl) => [...repl, ...nextReplies.replies]);
   };
 
   const isLoadMore =
-    (pageToken.current && !isFirstLoad.current) || (isFirstLoad.current && initReplies.length !== totalReplies);
+    (pageToken.current && !Boolean(skipCount.current)) ||
+    (Boolean(skipCount.current) && initReplies.length !== totalReplies);
   return (
     <div className={styles.replies}>
       {replies.map((reply) => (

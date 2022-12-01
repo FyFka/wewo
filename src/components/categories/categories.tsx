@@ -16,8 +16,8 @@ const categoriesMock = [
 ];
 
 export default function Categories() {
-  const categories = useRef<HTMLElement>();
   const [compact, setCompact] = useState(false);
+  const categories = useRef<HTMLElement>();
   useObserver({ target: categories, onIntersect: handleChangeCompact });
 
   function handleChangeCompact([entry]: IntersectionObserverEntry[]) {

@@ -1,11 +1,11 @@
 import { CategoryEnum } from "../../../shared/interfaces/Categories";
-import { IVideoPreview } from "../../../shared/interfaces/Video";
+import { IVideoPreviewItem } from "../../../shared/interfaces/Video";
 import Card from "../card/card";
 import LoadableCategory from "../loadable/loadableCategory";
 import styles from "./categoryVideos.module.css";
 
 interface IVideosProps {
-  videos: IVideoPreview[];
+  videos: IVideoPreviewItem[];
   category: CategoryEnum;
   pageCategory: string;
   pageToken?: string;

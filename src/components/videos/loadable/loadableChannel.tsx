@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { IVideoSearchItem } from "../../../shared/interfaces/Search";
+import { IVideoSearch, IVideoSearchItem } from "../../../shared/interfaces/Search";
+import { IVideoPreview } from "../../../shared/interfaces/Video";
 import Card from "../card/card";
 import InfiniteScroll from "./infiniteScroll/infiniteScroll";
 
@@ -18,10 +19,9 @@ export default function LoadableChannel({ initPageToken, channelId }: ILoadableC
     if (pageToken.current) {
       const params = new URLSearchParams({ pageToken: pageToken.current, channelId, type: "video" });
       const res = await fetch(`/api/search?${params}`);
-      const videoList = await res.json();
-      const filteredVideos = videoList.items.filter((video: IVideoSearchItem) => video.id.kind !== "youtube#channel");
-      pageToken.current = videoList.nextPageToken || "";
-      setSearchVideos((prev) => [...prev, ...filteredVideos]);
+      const { items, nextPageToken }: IVideoSearch = await res.json();
+      pageToken.current = nextPageToken || "";
+      setSearchVideos((prev) => [...prev, ...items]);
     }
   };
 

@@ -2,24 +2,24 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ICommentItem } from "../../../../shared/interfaces/Comments";
+import { ICommentThreadsItem } from "../../../../shared/interfaces/Comments";
 import { toPublishedAt, toViewCount } from "../../../../shared/helpers";
 import { useState } from "react";
 import Replies from "./replies/replies";
 import styles from "./comment.module.css";
 
 interface ICommentProps {
-  comment: ICommentItem;
+  thread: ICommentThreadsItem;
 }
 
-export default function Comment({ comment }: ICommentProps) {
-  const rootComment = comment.snippet.topLevelComment.snippet;
+export default function Comment({ thread }: ICommentProps) {
   const [repliesOpen, setRepliesOpen] = useState(false);
 
   const handleOpenReplies = () => {
     setRepliesOpen(true);
   };
 
+  const rootComment = thread.snippet.topLevelComment.snippet;
   return (
     <div className={styles.commentContainer} title={rootComment.authorDisplayName}>
       <Link href={`/channel/${rootComment.authorChannelId.value}`}>
@@ -43,13 +43,17 @@ export default function Comment({ comment }: ICommentProps) {
             <span className={styles.likeCount}>{toViewCount(rootComment.likeCount)}</span>
           </a>
         </div>
-        {comment.snippet.totalReplyCount > 0 && !repliesOpen && (
+        {thread.snippet.totalReplyCount > 0 && !repliesOpen && (
           <button onClick={handleOpenReplies} className={styles.replies}>
-            {comment.snippet.totalReplyCount} Replies
+            {thread.snippet.totalReplyCount} Replies
           </button>
         )}
-        {repliesOpen && comment.replies && (
-          <Replies initReplies={comment.replies.comments} totalReplies={comment.snippet.totalReplyCount} />
+        {repliesOpen && thread.replies && (
+          <Replies
+            initReplies={thread.replies.comments}
+            totalReplies={thread.snippet.totalReplyCount}
+            parentId={thread.id}
+          />
         )}
       </div>
     </div>

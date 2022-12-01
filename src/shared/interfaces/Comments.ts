@@ -2,7 +2,7 @@ import { IPageInfo } from "./Page";
 
 export interface ICommentThreads {
   etag: string;
-  items: ICommentItem[];
+  items: ICommentThreadsItem[];
   kind: string;
   nextPageToken?: string;
   pageInfo: IPageInfo;
@@ -19,7 +19,7 @@ export interface IReplySnippet extends ICommentSnippet {
   parentId: string;
 }
 
-export interface ICommentItem {
+export interface ICommentThreadsItem {
   etag: string;
   id: string;
   kind: string;

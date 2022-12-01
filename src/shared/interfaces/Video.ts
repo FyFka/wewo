@@ -2,14 +2,14 @@ import { ILocalized } from "./Localized";
 import { IPageInfo } from "./Page";
 import { IThumbnails } from "./Thumbnails";
 
-export interface IVideoPreviewList {
+export interface IVideoPreview {
   kind: string;
   etag: string;
-  items: IVideoPreview[];
+  items: IVideoPreviewItem[];
   nextPageToken?: string;
 }
 
-export interface IVideoList {
+export interface IVideoView {
   kind: string;
   etag: string;
   items: [IVideo] | [];
@@ -20,7 +20,7 @@ export interface IVideo {
   kind: string;
   etag: string;
   id: string;
-  snippet: ISnippet;
+  snippet: IVideoSnippet;
   contentDetails: IContentDetails;
   statistics: IStatistics;
   player: IPlayer;
@@ -30,16 +30,16 @@ export interface IPlayer {
   embedHtml: string;
 }
 
-export interface IVideoPreview {
+export interface IVideoPreviewItem {
   kind: string;
   etag: string;
   id: string;
-  snippet: ISnippet;
+  snippet: IVideoSnippet;
   contentDetails: IContentDetails;
   statistics: IStatistics;
 }
 
-interface ISnippet {
+interface IVideoSnippet {
   publishedAt: string;
   channelId: string;
   title: string;
