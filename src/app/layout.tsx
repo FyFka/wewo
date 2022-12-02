@@ -1,18 +1,16 @@
-"use client";
-import { ThemeProvider } from "next-themes";
+import { cookies } from "next/headers";
 import Header from "../components/header/header";
-
 import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const theme = cookies().get("theme")?.value || "dark";
+
   return (
-    <html lang="en" data-theme="dark" style={{ colorScheme: "dark" }}>
+    <html lang="en" data-theme={theme} style={{ colorScheme: theme }}>
       <head />
       <body>
-        <ThemeProvider defaultTheme="dark">
-          <Header />
-          <main id="root-layout">{children}</main>
-        </ThemeProvider>
+        <Header />
+        <main id="root-layout">{children}</main>
       </body>
     </html>
   );
