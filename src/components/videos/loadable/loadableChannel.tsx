@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { IVideoSearch, IVideoSearchItem } from "../../../shared/interfaces/Search";
-import { IVideoPreview } from "../../../shared/interfaces/Video";
 import Card from "../card/card";
 import InfiniteScroll from "./infiniteScroll/infiniteScroll";
 
