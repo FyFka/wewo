@@ -27,7 +27,7 @@
 }
 
 .authorText {
-  margin: 0;
+  margin: 0 0 0.15rem;
 }
 
 .publishedAt {
@@ -36,17 +36,31 @@
   color: #aaa;
 }
 
+.action {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 .like {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.25rem;
   font-size: 0.8rem;
-  padding: 0.1rem 0.15rem;
+  padding: 0 0.25rem;
   color: #aaa;
   border-radius: 0.5rem;
 }
 
-.like:hover {
+.dislike {
+  display: block;
+  padding: 0 0.25rem;
+  border-radius: 0.5rem;
+  transform: scale(-1);
+}
+
+.like:hover,
+.dislike:hover {
   background-color: var(--third-color);
 }
 

@@ -16,6 +16,7 @@
   padding: 0;
   background: url("../../../public/assets/refresh.svg");
   transition: transform 0.25s ease-in-out;
+  filter: invert(var(--image-invert-color));
 }
 
 .title {
@@ -24,6 +25,27 @@
   margin: 0;
 }
 
+.show {
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: brown;
+  color: var(--contrast-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.message {
+  font-size: 1.25rem;
+}
+
 .reset:hover {
   transform: rotate(180deg) scale(1.1);
+}
+
+.errorDisplay {
+  max-width: 70rem;
+  background-color: var(--third-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
 }

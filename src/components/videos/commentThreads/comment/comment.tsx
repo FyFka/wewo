@@ -37,10 +37,13 @@ export default function Comment({ thread }: ICommentProps) {
           <span className={styles.publishedAt}>{toPublishedAt(rootComment.publishedAt)}</span>
         </Link>
         <p className={styles.authorComment}>{rootComment.textOriginal}</p>
-        <div className={styles.meta}>
+        <div className={styles.action}>
           <a className={styles.like} href={`https://www.youtube.com/watch?v=${rootComment.videoId}`} title="like">
-            <Image className={styles.likeIcon} src="/assets/like.svg" width={24} height={24} alt="likes count" />
+            <Image className={styles.likeIcon} src="/assets/like.svg" width={24} height={24} alt="like" />
             <span className={styles.likeCount}>{toViewCount(rootComment.likeCount)}</span>
+          </a>
+          <a className={styles.dislike} href={`https://www.youtube.com/watch?v=${rootComment.videoId}`} title="dislike">
+            <Image className={styles.likeIcon} src="/assets/like.svg" width={24} height={24} alt="dislike" />
           </a>
         </div>
         {thread.snippet.totalReplyCount > 0 && !repliesOpen && (

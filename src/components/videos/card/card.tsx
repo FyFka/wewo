@@ -35,19 +35,11 @@ export default function Card({ thumbnails, title, videoId, channelId, channelTit
       <Link className={styles.previewContainer} href={isChannel ? `/channel/${channelId}` : `/video/${getId(videoId)}`}>
         <div className={styles.preview} title={title}>
           <div className={`${styles.imageContainer} ${isChannel ? styles.channelImage : ""}`}>
-            <Image
-              src={thumbnail}
-              alt={title}
-              fill
-              sizes="(max-width: 768px) 100vw,
-              (max-width: 1024px) 33vw,
-              (max-width: 1440px) 25vw,
-              20vw"
-            />
+            <Image src={thumbnail} alt={title} fill />
           </div>
           {!isChannel && (
             <div className={styles.play}>
-              <Image src="/assets/play.svg" alt="play" width={42} height={42} />
+              <Image src="/assets/play.svg" alt="play video" width={42} height={42} />
               <h4 className={styles.playText}>Play</h4>
             </div>
           )}

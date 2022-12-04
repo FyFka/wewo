@@ -6,11 +6,11 @@
   overflow: hidden;
 }
 
-.videoInfo {
+.info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0.5rem 0 1rem;
+  margin: 0.5rem 0 0 0;
 }
 
 .title {
@@ -18,7 +18,7 @@
   margin: 0;
 }
 
-.likesContainer {
+.like {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -27,6 +27,34 @@
   border-radius: 0.5rem;
 }
 
+.dislike {
+  background-color: var(--third-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  transform: scale(-1);
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .likeIcon {
   filter: invert(var(--image-invert-color));
+}
+
+.channel {
+  color: #6f7176;
+  margin: 0;
+}
+
+.channelContainer {
+  display: inline-block;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.views {
+  margin: 0;
+  font-size: 1.25rem;
 }

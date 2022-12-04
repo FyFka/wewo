@@ -12,7 +12,7 @@ export default async function Channel({ params }: { params: { id: string } }) {
     getVideosByKey(params.id, "channelId", "video"),
   ]);
 
-  if (!channel.items[0]) {
+  if (!channel.items) {
     notFound();
   }
 
@@ -21,7 +21,7 @@ export default async function Channel({ params }: { params: { id: string } }) {
 
   if (channelItem.brandingSettings.channel.unsubscribedTrailer) {
     const channelTrailer = await getVideoById(channelItem.brandingSettings.channel.unsubscribedTrailer);
-    if (channelTrailer.items[0]) {
+    if (channelTrailer.items.length !== 0) {
       trailer = channelTrailer.items[0];
     }
   }

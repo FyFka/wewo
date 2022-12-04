@@ -6,7 +6,7 @@ export interface IChannel {
   kind: string;
   etag: string;
   pageInfo: IPageInfo;
-  items: [IChannelItem] | [];
+  items?: [IChannelItem];
 }
 
 interface IChannelItem {

@@ -5,6 +5,7 @@ import { toViewCount } from "../../../shared/helpers";
 import CommentThreads from "../../../components/videos/commentThreads/commentThreads";
 import { getVideoById } from "../../../external/videos";
 import styles from "./video.module.css";
+import Link from "next/link";
 
 export default async function Video({ params }: { params: { id: string } }) {
   const videoList = await getVideoById(params.id);
@@ -22,18 +23,34 @@ export default async function Video({ params }: { params: { id: string } }) {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
-      <div className={styles.videoInfo}>
+      <div className={styles.info}>
         <h2 className={styles.title}>{video.snippet.title}</h2>
-        <a
-          className={styles.likesContainer}
-          href={`https://www.youtube.com/watch?v=${video.id}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image className={styles.likeIcon} width={24} height={24} src="/assets/like.svg" alt="likes count" />
-          <span>{toViewCount(video.statistics.likeCount)}</span>
-        </a>
+        <div className={styles.action}>
+          <h4 className={styles.views}>{toViewCount(video.statistics.viewCount)} views</h4>
+          <a
+            className={styles.like}
+            href={`https://www.youtube.com/watch?v=${video.id}`}
+            target="_blank"
+            rel="noreferrer"
+            title="like"
+          >
+            <Image className={styles.likeIcon} width={24} height={24} src="/assets/like.svg" alt="like" />
+            <span>{toViewCount(video.statistics.likeCount)}</span>
+          </a>
+          <a
+            className={styles.dislike}
+            href={`https://www.youtube.com/watch?v=${video.id}`}
+            target="_blank"
+            rel="noreferrer"
+            title="dislike"
+          >
+            <Image className={styles.likeIcon} width={24} height={24} src="/assets/like.svg" alt="dislike" />
+          </a>
+        </div>
       </div>
+      <Link className={styles.channelContainer} href={`/channel/${video.snippet.channelId}`}>
+        <h5 className={styles.channel}>{video.snippet.channelTitle}</h5>
+      </Link>
       <DynamicDescription description={video.snippet.description} />
       <CommentThreads videoId={video.id} count={video.statistics.commentCount} />
     </section>

@@ -1,13 +1,5 @@
-import Link from "next/link";
-import styles from "./not-found.module.css";
+import NotFound from "../../../components/notFound/notFound";
 
-export default function NotFound() {
-  return (
-    <div className={styles.notFound}>
-      <h1 className={styles.title}>Video not found😐</h1>
-      <Link href="/" className={styles.back}>
-        Back to save place
-      </Link>
-    </div>
-  );
+export default function VideoNotFound() {
+  return <NotFound title="Video not found😐" />;
 }
