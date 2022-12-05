@@ -1,11 +1,11 @@
 "use client";
 
-import { RefObject, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Category from "./category/category";
 import { useObserver } from "../../hooks/useObserver";
 import styles from "./categories.module.css";
 
-const categoriesMock = [
+const categoryRoutes = [
   { to: "/", name: "Trending", icon: "/assets/categories/trending.svg" },
   { to: "/gaming", name: "Gaming", icon: "/assets/categories/gaming.svg" },
   { to: "/blogs", name: "People & Blogs", icon: "/assets/categories/blogs.svg" },
@@ -17,7 +17,7 @@ const categoriesMock = [
 
 export default function Categories() {
   const [compact, setCompact] = useState(false);
-  const categories = useRef<HTMLElement>();
+  const categories = useRef<HTMLElement>(null);
   useObserver({ target: categories, onIntersect: handleChangeCompact });
 
   function handleChangeCompact([entry]: IntersectionObserverEntry[]) {
@@ -30,9 +30,9 @@ export default function Categories() {
 
   return (
     <>
-      <section ref={categories as RefObject<HTMLElement>} className={styles.categories}>
+      <section ref={categories} className={styles.categories}>
         <nav className={styles.categoriesInner}>
-          {categoriesMock.map(({ to, name, icon }) => (
+          {categoryRoutes.map(({ to, name, icon }) => (
             <Category to={to} name={name} key={name} icon={icon} />
           ))}
         </nav>
@@ -40,7 +40,7 @@ export default function Categories() {
       {compact && (
         <section className={styles.compactCategories}>
           <nav className={styles.categoriesInner}>
-            {categoriesMock.map(({ to, name }) => (
+            {categoryRoutes.map(({ to, name }) => (
               <Category to={to} name={name} key={name} compact={compact} />
             ))}
           </nav>

@@ -1,6 +1,6 @@
 "use client";
 
-import { RefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useObserver } from "../../../hooks/useObserver";
 import { toViewCount } from "../../../shared/helpers";
 import { ICommentThreadsItem, ICommentThreads } from "../../../shared/interfaces/Comments";
@@ -15,7 +15,7 @@ interface ICommentsProps {
 export default function CommentThreads({ videoId, count }: ICommentsProps) {
   const [threads, setThreads] = useState<ICommentThreadsItem[]>([]);
   const pageToken = useRef<string>();
-  const scrollTrigger = useRef<HTMLDivElement>();
+  const scrollTrigger = useRef<HTMLDivElement>(null);
   useObserver({ target: scrollTrigger, onIntersect: handleLoadMore });
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function CommentThreads({ videoId, count }: ICommentsProps) {
         {threads.map((thread) => (
           <Comment key={thread.id} thread={thread} />
         ))}
-        <div ref={scrollTrigger as RefObject<HTMLDivElement>} className={styles.infiniteScrollTrigger}></div>
+        <div ref={scrollTrigger} className={styles.infiniteScrollTrigger}></div>
       </div>
     </div>
   );

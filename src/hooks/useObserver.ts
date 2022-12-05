@@ -1,7 +1,7 @@
-import { MutableRefObject, useEffect } from "react";
+import { RefObject, useEffect } from "react";
 
 interface IUseObserver {
-  target: MutableRefObject<HTMLElement | undefined>;
+  target: RefObject<HTMLElement>;
   onIntersect: IntersectionObserverCallback;
   threshold?: number;
 }
