@@ -9,7 +9,7 @@ export default function Trailer({ trailer }: ITrailerProps) {
   return (
     <div className={styles.trailer}>
       <iframe
-        className={styles.playerFrame}
+        className={styles.player}
         src={`https://www.youtube.com/embed/${trailer.id}?autoplay=1`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

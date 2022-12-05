@@ -31,7 +31,7 @@ export default function Categories() {
   return (
     <>
       <section ref={categories} className={styles.categories}>
-        <nav className={styles.categoriesInner}>
+        <nav className={styles.categoriesNav}>
           {categoryRoutes.map(({ to, name, icon }) => (
             <Category to={to} name={name} key={name} icon={icon} />
           ))}
@@ -39,7 +39,7 @@ export default function Categories() {
       </section>
       {compact && (
         <section className={styles.compactCategories}>
-          <nav className={styles.categoriesInner}>
+          <nav className={styles.categoriesNav}>
             {categoryRoutes.map(({ to, name }) => (
               <Category to={to} name={name} key={name} compact={compact} />
             ))}

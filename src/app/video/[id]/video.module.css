@@ -1,4 +1,4 @@
-.playerFrame {
+.player {
   width: 100%;
   height: 45rem;
   border: none;
@@ -40,18 +40,17 @@
   gap: 0.5rem;
 }
 
-.likeIcon {
+.actionIcon {
   filter: invert(var(--image-invert-color));
 }
 
 .channel {
-  color: #6f7176;
-  margin: 0;
-}
-
-.channelContainer {
   display: inline-block;
   margin: 0.5rem 0 1rem 0;
+  color: #6f7176;
+  margin: 0.5rem 0 1rem 0;
+  font-weight: 700;
+  font-size: 1.15rem;
 }
 
 .views {

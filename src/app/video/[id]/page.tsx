@@ -8,17 +8,17 @@ import styles from "./video.module.css";
 import Link from "next/link";
 
 export default async function Video({ params }: { params: { id: string } }) {
-  const videoList = await getVideoById(params.id);
+  const videoView = await getVideoById(params.id);
 
-  if (videoList.items.length === 0) {
+  if (videoView.items.length === 0) {
     notFound();
   }
 
-  const video = videoList.items[0];
+  const video = videoView.items[0];
   return (
     <section>
       <iframe
-        className={styles.playerFrame}
+        className={styles.player}
         src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
@@ -34,7 +34,7 @@ export default async function Video({ params }: { params: { id: string } }) {
             rel="noreferrer"
             title="like"
           >
-            <Image className={styles.likeIcon} width={24} height={24} src="/assets/like.svg" alt="like" />
+            <Image className={styles.actionIcon} width={24} height={24} src="/assets/like.svg" alt="like" />
             <span>{toViewCount(video.statistics.likeCount)}</span>
           </a>
           <a
@@ -44,12 +44,12 @@ export default async function Video({ params }: { params: { id: string } }) {
             rel="noreferrer"
             title="dislike"
           >
-            <Image className={styles.likeIcon} width={24} height={24} src="/assets/like.svg" alt="dislike" />
+            <Image className={styles.actionIcon} width={24} height={24} src="/assets/like.svg" alt="dislike" />
           </a>
         </div>
       </div>
-      <Link className={styles.channelContainer} href={`/channel/${video.snippet.channelId}`}>
-        <h5 className={styles.channel}>{video.snippet.channelTitle}</h5>
+      <Link className={styles.channel} href={`/channel/${video.snippet.channelId}`}>
+        {video.snippet.channelTitle}
       </Link>
       <DynamicDescription description={video.snippet.description} />
       <CommentThreads videoId={video.id} count={video.statistics.commentCount} />

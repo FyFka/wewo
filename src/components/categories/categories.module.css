@@ -4,7 +4,7 @@
   padding: 1.25rem;
 }
 
-.categoriesInner {
+.categoriesNav {
   display: flex;
   gap: 1.75rem;
   flex-wrap: nowrap;

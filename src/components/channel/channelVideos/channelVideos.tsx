@@ -11,7 +11,7 @@ interface IChannelVideosProps {
 
 export default function ChannelVideos({ videos, initPageToken, channelId }: IChannelVideosProps) {
   return (
-    <div className={styles.videosContainer}>
+    <div className={styles.videos}>
       {videos.length > 0 ? (
         videos.map(({ id, snippet }) => (
           <Card
