@@ -1,4 +1,7 @@
+import Link from "next/link";
+import { useMemo } from "react";
 import { IVideo } from "../../../shared/interfaces/Video";
+import DynamicDescription from "../../videos/dynamicDescription/dynamicDescription";
 import styles from "./trailer.module.css";
 
 interface ITrailerProps {
@@ -14,9 +17,11 @@ export default function Trailer({ trailer }: ITrailerProps) {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
-      <div>
-        <h2 className={styles.title}>{trailer.snippet.title}</h2>
-        <p className={styles.description}>{trailer.snippet.description}</p>
+      <div className={styles.trailerInfo}>
+        <Link href={`/video/${trailer.id}`} className={styles.title}>
+          {trailer.snippet.title}
+        </Link>
+        <DynamicDescription description={trailer.snippet.description} />
       </div>
     </div>
   );

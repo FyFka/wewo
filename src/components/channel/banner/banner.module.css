@@ -9,3 +9,9 @@
 .image {
   object-fit: cover;
 }
+
+@media (max-width: 425px) {
+  .banner {
+    height: 32vw;
+  }
+}

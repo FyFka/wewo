@@ -27,12 +27,14 @@
   margin: 0;
   font-size: 0.8rem;
   color: #aaa;
+  white-space: nowrap;
 }
 
 .action {
   display: flex;
-  align-items: cent er;
+  align-items: center;
   gap: 0.5rem;
+  margin-bottom: 0.15rem;
 }
 
 .like {

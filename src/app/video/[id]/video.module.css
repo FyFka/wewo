@@ -14,7 +14,7 @@
 }
 
 .title {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
@@ -56,4 +56,25 @@
 .views {
   margin: 0;
   font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .player {
+    height: 30rem;
+  }
+  .info {
+    flex-direction: column;
+    align-items: initial;
+    gap: 0.25rem;
+  }
+  .action {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 425px) {
+  .player {
+    height: 20rem;
+  }
 }

@@ -52,3 +52,38 @@
   background-color: var(--primary-color);
   border-radius: 0.5rem;
 }
+
+@media (max-width: 1024px) {
+  .videos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .preview {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+  .subscribe {
+    width: 100%;
+  }
+  .videos {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 425px) {
+  .banner {
+    height: 32vw;
+  }
+  .preview {
+    flex-direction: column;
+  }
+  .avatar {
+    width: 10rem;
+    height: 10rem;
+  }
+  .info {
+    flex-direction: column;
+  }
+}

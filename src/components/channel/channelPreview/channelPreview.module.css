@@ -15,6 +15,7 @@
 .avatar {
   position: relative;
   height: 8rem;
+  min-width: 8rem;
   width: 8rem;
   border-radius: 100%;
   overflow: hidden;
@@ -35,6 +36,7 @@
   font-size: 0.85rem;
   border: none;
   border-radius: 5rem;
+  text-align: center;
 }
 
 .customUrl,
@@ -47,4 +49,35 @@
 
 .viewCount {
   margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .preview {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+  .subscribe {
+    width: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .preview {
+    flex-direction: column;
+  }
+  .avatar {
+    width: 10rem;
+    height: 10rem;
+  }
+  .title {
+    text-align: center;
+  }
+  .customUrl,
+  .viewCount {
+    text-align: center;
+  }
+  .info {
+    flex-direction: column;
+  }
 }

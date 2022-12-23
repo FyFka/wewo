@@ -1,3 +1,7 @@
+:root {
+  font-size: 16px;
+}
+
 html[data-theme="dark"] {
   --primary-color: #101113;
   --primary-contrast-color: #0a0b0c;
@@ -44,6 +48,11 @@ a {
   box-sizing: border-box;
 }
 
+* {
+  scrollbar-color: var(--contrast-color) var(--scrollbar-color);
+  scrollbar-width: thin !important;
+}
+
 *::-webkit-scrollbar {
   width: 0.25rem;
   height: 0.25rem;
@@ -68,4 +77,10 @@ a {
 
 .invert {
   filter: invert(100%);
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
 }

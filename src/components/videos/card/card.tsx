@@ -21,13 +21,12 @@ export default function Card({ thumbnails, title, videoId, channelId, channelTit
   const thumbnail = thumbnails.maxres ? thumbnails.maxres.url : thumbnails.high.url;
 
   const getId = (id: string | IVideoSearchId) => {
-    const bufId = id;
-    if (typeof bufId === "string") {
-      return bufId;
-    } else if (bufId.videoId) {
-      return bufId.videoId;
+    if (typeof id === "string") {
+      return id;
+    } else if (id.videoId) {
+      return id.videoId;
     }
-    return bufId.playlistId;
+    return id.playlistId;
   };
 
   return (
