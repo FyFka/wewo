@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import styles from "./errorBoundary.module.css";
+import { useEffect, useState } from "react";
 
 interface IErrorBoundaryProps {
   error: Error;

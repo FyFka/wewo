@@ -1,11 +1,11 @@
 "use client";
 
+import styles from "./replies.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { IComment, IReplies, IReplySnippet } from "../../../../../shared/interfaces/Comments";
 import { toPublishedAt, toViewCount } from "../../../../../shared/helpers";
 import { useRef, useState } from "react";
-import styles from "./replies.module.css";
 
 interface IRepliesProps {
   initReplies: IComment<IReplySnippet>[];

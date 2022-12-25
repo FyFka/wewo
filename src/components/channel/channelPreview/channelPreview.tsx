@@ -1,7 +1,7 @@
+import styles from "./channelPreview.module.css";
 import Image from "next/image";
 import { toViewCount } from "../../../shared/helpers";
 import { IThumbnails } from "../../../shared/interfaces/Thumbnails";
-import styles from "./channelPreview.module.css";
 
 interface IChannelPreviewProps {
   subscribers: string;
@@ -11,7 +11,7 @@ interface IChannelPreviewProps {
 }
 
 export default function ChannelPreview({ subscribers, title, thumbnails, customUrl }: IChannelPreviewProps) {
-  const thumbnail = thumbnails.maxres ? thumbnails.maxres.url : thumbnails.high.url;
+  const thumbnail = thumbnails.high ? thumbnails.high.url : thumbnails.medium.url;
 
   return (
     <div className={styles.preview}>

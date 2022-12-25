@@ -1,10 +1,10 @@
+import styles from "./video.module.css";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import DynamicDescription from "../../../components/videos/dynamicDescription/dynamicDescription";
 import { toViewCount } from "../../../shared/helpers";
 import CommentThreads from "../../../components/videos/commentThreads/commentThreads";
 import { getVideoById } from "../../../external/videos";
-import styles from "./video.module.css";
 import Link from "next/link";
 
 export default async function Video({ params }: { params: { id: string } }) {

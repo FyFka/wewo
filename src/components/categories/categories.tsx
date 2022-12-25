@@ -1,9 +1,9 @@
 "use client";
 
+import styles from "./categories.module.css";
 import { useRef, useState } from "react";
 import Category from "./category/category";
 import { useObserver } from "../../hooks/useObserver";
-import styles from "./categories.module.css";
 
 const categoryRoutes = [
   { to: "/", name: "Trending", icon: "/assets/categories/trending.svg" },

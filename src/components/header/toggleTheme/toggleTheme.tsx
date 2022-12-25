@@ -1,8 +1,8 @@
 "use client";
 
+import styles from "./toggleTheme.module.css";
 import { useToggleTheme } from "../../../hooks/ToggleTheme";
 import Image from "next/image";
-import styles from "./toggleTheme.module.css";
 
 export default function ToggleTheme() {
   const { theme, setTheme } = useToggleTheme();

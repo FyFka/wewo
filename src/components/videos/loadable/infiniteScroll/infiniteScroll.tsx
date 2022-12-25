@@ -1,8 +1,8 @@
 "use client";
 
+import styles from "./infiniteScroll.module.css";
 import { useRef } from "react";
 import { useObserver } from "../../../../hooks/useObserver";
-import styles from "./infiniteScroll.module.css";
 
 interface InfiniteScrollProps {
   children: React.ReactNode;

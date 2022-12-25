@@ -1,6 +1,6 @@
+import styles from "./category.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./category.module.css";
 
 interface ICategoryProps {
   to: string;

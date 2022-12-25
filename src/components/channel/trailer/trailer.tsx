@@ -1,8 +1,7 @@
+import styles from "./trailer.module.css";
 import Link from "next/link";
-import { useMemo } from "react";
 import { IVideo } from "../../../shared/interfaces/Video";
 import DynamicDescription from "../../videos/dynamicDescription/dynamicDescription";
-import styles from "./trailer.module.css";
 
 interface ITrailerProps {
   trailer: IVideo;

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import styles from "./banner.module.css";
+import Image from "next/image";
 
 interface IBannerProps {
   source?: string;

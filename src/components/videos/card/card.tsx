@@ -1,11 +1,11 @@
 "use client";
 
+import styles from "./card.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { IThumbnails } from "../../../shared/interfaces/Thumbnails";
 import { toPublishedAt, toViewCount } from "../../../shared/helpers";
 import { IVideoSearchId } from "../../../shared/interfaces/Search";
-import styles from "./card.module.css";
 
 interface ICardProps {
   thumbnails: IThumbnails;
@@ -18,7 +18,7 @@ interface ICardProps {
 }
 
 export default function Card({ thumbnails, title, videoId, channelId, channelTitle, meta, isChannel }: ICardProps) {
-  const thumbnail = thumbnails.maxres ? thumbnails.maxres.url : thumbnails.high.url;
+  const thumbnail = thumbnails.high ? thumbnails.high.url : thumbnails.medium.url;
 
   const getId = (id: string | IVideoSearchId) => {
     if (typeof id === "string") {

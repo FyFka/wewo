@@ -1,14 +1,15 @@
+import styles from "./search.module.css";
 import Card from "../../../components/videos/card/card";
 import LoadableSearch from "../../../components/videos/loadable/loadableSearch";
 import { getVideosByKey } from "../../../external/videos";
-import styles from "./search.module.css";
 
 export default async function Search({ searchParams }: { searchParams?: { query: string } }) {
   const videos = await getVideosByKey(searchParams?.query ? searchParams.query : "");
 
+  const videosWithoutPlaylists = videos.items.filter((item) => item.id.kind !== "youtube#playlist");
   return (
     <section className={styles.search}>
-      {videos.items.map(({ id, snippet }) => (
+      {videosWithoutPlaylists.map(({ id, snippet }) => (
         <Card
           key={snippet.publishedAt}
           videoId={id}

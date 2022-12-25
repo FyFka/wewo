@@ -1,7 +1,7 @@
+import styles from "./channelVideos.module.css";
 import { IVideoSearchItem } from "../../../shared/interfaces/Search";
 import Card from "../../videos/card/card";
 import LoadableChannel from "../../videos/loadable/loadableChannel";
-import styles from "./channelVideos.module.css";
 
 interface IChannelVideosProps {
   videos: IVideoSearchItem[];

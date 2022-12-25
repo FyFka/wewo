@@ -19,7 +19,8 @@ export default function LoadableSearch({ initPageToken }: ILoadableSearchProps) 
       const res = await fetch(`/api/search?${params}`);
       const { nextPageToken, items }: IVideoSearch = await res.json();
       pageToken.current = nextPageToken || "";
-      setSearchVideos((prev) => [...prev, ...items]);
+      const videosWithoutPlaylists = items.filter((item) => item.id.kind !== "youtube#playlist");
+      setSearchVideos((prev) => [...prev, ...videosWithoutPlaylists]);
     }
   };
 

@@ -1,11 +1,11 @@
 "use client";
 
+import styles from "./commentThreads.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useObserver } from "../../../hooks/useObserver";
 import { toViewCount } from "../../../shared/helpers";
 import { ICommentThreadsItem, ICommentThreads } from "../../../shared/interfaces/Comments";
 import Comment from "./comment/comment";
-import styles from "./commentThreads.module.css";
 
 interface ICommentsProps {
   videoId: string;

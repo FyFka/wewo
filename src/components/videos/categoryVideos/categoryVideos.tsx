@@ -1,8 +1,8 @@
+import styles from "./categoryVideos.module.css";
 import { CategoryEnum } from "../../../shared/interfaces/Categories";
 import { IVideoPreviewItem } from "../../../shared/interfaces/Video";
 import Card from "../card/card";
 import LoadableCategory from "../loadable/loadableCategory";
-import styles from "./categoryVideos.module.css";
 
 interface IVideosProps {
   videos: IVideoPreviewItem[];

@@ -3,6 +3,10 @@
   gap: 0.75rem;
 }
 
+.comments {
+  width: 100%;
+}
+
 .avatar {
   border-radius: 100%;
 }

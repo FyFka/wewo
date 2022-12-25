@@ -1,5 +1,5 @@
-import Link from "next/link";
 import styles from "./notFound.module.css";
+import Link from "next/link";
 
 interface INotFoundProps {
   title: string;

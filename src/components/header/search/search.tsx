@@ -1,8 +1,8 @@
 "use client";
 
+import styles from "./search.module.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./search.module.css";
 
 export default function Search() {
   const [isFocused, setIsFocused] = useState(false);

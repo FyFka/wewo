@@ -1,12 +1,12 @@
 "use client";
 
+import styles from "./comment.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { ICommentThreadsItem } from "../../../../shared/interfaces/Comments";
 import { toPublishedAt, toViewCount } from "../../../../shared/helpers";
 import { useState } from "react";
 import Replies from "./replies/replies";
-import styles from "./comment.module.css";
 
 interface ICommentProps {
   thread: ICommentThreadsItem;
@@ -31,7 +31,7 @@ export default function Comment({ thread }: ICommentProps) {
           alt={`${rootComment.authorDisplayName} avatar`}
         />
       </Link>
-      <div>
+      <div className={styles.comments}>
         <Link href={`/channel/${rootComment.authorChannelId.value}`} className={styles.authorInfo}>
           <h4 className={styles.authorName}>{rootComment.authorDisplayName}</h4>
           <span className={styles.publishedAt}>{toPublishedAt(rootComment.publishedAt)}</span>

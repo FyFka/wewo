@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import styles from "./dynamicDescription.module.css";
+import { useMemo, useState } from "react";
 
 interface IDynamicDescriptionProps {
   description: string;
