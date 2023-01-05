@@ -18,7 +18,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
-  aspect-ratio: 5/3;
+  aspect-ratio: 16/9;
 }
 
 .imageContainer {

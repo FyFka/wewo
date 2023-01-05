@@ -18,8 +18,6 @@ interface ICardProps {
 }
 
 export default function Card({ thumbnails, title, videoId, channelId, channelTitle, meta, isChannel }: ICardProps) {
-  const thumbnail = thumbnails.high ? thumbnails.high.url : thumbnails.medium.url;
-
   const getId = (id: string | IVideoSearchId) => {
     if (typeof id === "string") {
       return id;
@@ -30,11 +28,11 @@ export default function Card({ thumbnails, title, videoId, channelId, channelTit
   };
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} title={JSON.stringify(thumbnails)}>
       <Link className={styles.previewContainer} href={isChannel ? `/channel/${channelId}` : `/video/${getId(videoId)}`}>
         <div className={styles.preview} title={title}>
           <div className={`${styles.imageContainer} ${isChannel ? styles.channelImage : ""}`}>
-            <Image src={thumbnail} alt={title} fill />
+            <Image src={thumbnails.medium.url} alt={title} fill />
           </div>
           {!isChannel && (
             <div className={styles.play}>
